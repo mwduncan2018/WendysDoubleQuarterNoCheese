@@ -1,13 +1,6 @@
 ## WendysDoubleQuarterNoCheese
 
-#### Test automation using
-###### Cucumber BDD
-###### Java
-###### Selenium
-###### Python
-###### OpenCV Template Matching
-###### Page-Object Model
-###### Apache POI Word
+###### Cucumber BDD, Java, Selenium, Python, OpenCV Template Matching, Page-Object Model, Apache POI Word
 
 ##### The automation is running against a C# MVC 5 website on my GitHub, "demoweb".
 
