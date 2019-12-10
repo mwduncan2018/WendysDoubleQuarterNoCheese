@@ -14,7 +14,7 @@
 
 ##### Java is a good choice to build an automation framework because of the static typing, which results in strong intellisense.
 
-# Installing OpenCV
+## Installing OpenCV
 ###### OpenCV must be downloaded and added to the Eclipse workspace.
 ### Windows Installation Instructions
 ###### https://opencv-java-tutorials.readthedocs.io/en/latest/01-installing-opencv-for-java.html#install-opencv-3-x-under-windows  
@@ -27,7 +27,7 @@
 ###### https://opencv-java-tutorials.readthedocs.io/en/latest/01-installing-opencv-for-java.html#set-up-opencv-for-java-in-eclipse  
 ###### If the user library already exists, right click the project name, then "Build Path" => "Add Libraries" => "User Library" => "opencv".
   
-# Installing Winium Driver
+## Installing Winium Driver
 ###### https://www.youtube.com/watch?v=juRKu9cBwQ0&t=937s 
 
 ###### GitHub - Winium For Desktop
@@ -35,6 +35,6 @@
 ###### GitHub - Winium Driver
 ###### https://github.com/2gis/Winium.Desktop/releases
 
-# This demo project
+## This demo project
 ###### "WendysDoubleQuarterNoCheese"
 
