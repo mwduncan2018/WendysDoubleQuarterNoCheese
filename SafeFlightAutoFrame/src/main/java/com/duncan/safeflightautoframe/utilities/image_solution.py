@@ -60,6 +60,8 @@ class ImageSolution:
 
 
 if __name__ == '__main__':
+	#template_image = x + 'DestinationsPage\\denver_carousel.jpg'
+	#screenshot_image = x + 'screenshot.jpg'
 	template_image = sys.argv[1]
 	screenshot_image = sys.argv[2]
 	f = sys.argv[3]

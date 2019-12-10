@@ -18,8 +18,7 @@ public class Hooks {
 
 	@After(order=1)
 	public void afterScenario() {
-		// Faster when the Driver doesn't restart for each scenario
-		//Driver.close();
+		
 	}
 
 }
