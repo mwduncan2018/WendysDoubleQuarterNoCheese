@@ -24,12 +24,9 @@
 ##### If the user library already exists in the Eclipse workspace, right click the project name, then "Build Path" => "Add Libraries" => "User Library" => "opencv".
   
 # Installing Winium Driver (like Selenium for WPF apps)
-###### https://www.youtube.com/watch?v=juRKu9cBwQ0&t=937s 
-
-###### GitHub - Winium For Desktop
-###### https://github.com/2gis/Winium.Desktop
-###### GitHub - Winium Driver
-###### https://github.com/2gis/Winium.Desktop/releases
+###### This video explains how to install Winium (https://www.youtube.com/watch?v=juRKu9cBwQ0&t=937s).
+###### GitHub- Winium for Desktop (https://github.com/2gis/Winium.Desktop)
+###### GitHub - Winium Driver (https://github.com/2gis/Winium.Desktop/releases)
 
 # Cucumber Hooks
 ###### Global hooks go in the Cucumber Runner using the standard JUnit annotations, which are @BeforeClass and @AfterClass. @BeforeClass executes before all scenarios. @AfterClass executes after all scenarios.
