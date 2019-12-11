@@ -25,7 +25,6 @@
   
 # Installing Winium Driver (like Selenium for WPF apps)
 ###### The Winium Driver must be installed. It can be found here (https://github.com/2gis/Winium.Desktop/releases).
-###### The Winium GitHub is here (https://github.com/2gis/Winium.Desktop).
 ###### This video explains how to install and use Winium (https://www.youtube.com/watch?v=juRKu9cBwQ0&t=937s).
 
 # Cucumber Hooks
