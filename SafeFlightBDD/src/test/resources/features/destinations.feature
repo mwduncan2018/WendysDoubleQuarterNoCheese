@@ -6,6 +6,9 @@ Feature: Destinations Feature
     Given I navigate to the destinations page
 
   @smoke
+  Scenario: Smoke test for the image canvas
+    Then a destination image is displayed
+  
   Scenario: New York advertisement
     When New York is selected
     Then an image advertising New York is displayed
