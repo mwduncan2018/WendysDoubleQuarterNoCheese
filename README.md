@@ -24,8 +24,8 @@
 ##### If the user library already exists in the Eclipse workspace, right click the project name, then "Build Path" => "Add Libraries" => "User Library" => "opencv".
   
 # Installing Winium Driver (like Selenium for WPF apps)
-###### This video explains how to install Winium (https://www.youtube.com/watch?v=juRKu9cBwQ0&t=937s).
-###### GitHub- Winium for Desktop (https://github.com/2gis/Winium.Desktop)
+###### Winium for Desktop must be installed. It can be found here (https://github.com/2gis/Winium.Desktop).
+###### This video explains how to install and use Winium (https://www.youtube.com/watch?v=juRKu9cBwQ0&t=937s).
 ###### GitHub - Winium Driver (https://github.com/2gis/Winium.Desktop/releases)
 
 # Cucumber Hooks
