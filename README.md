@@ -20,13 +20,13 @@
 
 ## Java Instructions
 ###### OpenCV must be downloaded and added to the Eclipse workspace.
-### Windows Installation Instructions
+#### Windows Installation Instructions
 ###### https://opencv-java-tutorials.readthedocs.io/en/latest/01-installing-opencv-for-java.html#install-opencv-3-x-under-windows  
 
-### Download Page
+#### Download Page
 ###### https://opencv.org/releases/  
 
-### Eclipse Setup Instructions
+#### Eclipse Setup Instructions
 ###### If the user library does not already exist, follow the instructions in this link.
 ###### https://opencv-java-tutorials.readthedocs.io/en/latest/01-installing-opencv-for-java.html#set-up-opencv-for-java-in-eclipse  
 ###### If the user library already exists, right click the project name, then "Build Path" => "Add Libraries" => "User Library" => "opencv".
