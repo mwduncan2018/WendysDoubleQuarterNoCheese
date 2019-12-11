@@ -14,7 +14,10 @@
 
 ##### Java is a good choice to build an automation framework because of the static typing, which results in strong intellisense.
 
-# Installing OpenCV (for image recognition)
+# Installing OpenCV for Python (for image recognition)
+##### pip install opencv-python
+
+# Installing OpenCV for Java (for image recognition)
 ###### OpenCV must be downloaded and added to the Eclipse workspace.
 ### Windows Installation Instructions
 ###### https://opencv-java-tutorials.readthedocs.io/en/latest/01-installing-opencv-for-java.html#install-opencv-3-x-under-windows  
