@@ -3,7 +3,8 @@ package com.duncan.safeflightautoframe.pom;
 import org.opencv.core.Point;
 import org.openqa.selenium.By;
 
-import com.duncan.safeflightautoframe.utilities.ImageSolution;
+import com.duncan.autoutilities.ImageSolution;
+
 
 public class DestinationsPage extends BasePage {
 
@@ -16,6 +17,7 @@ public class DestinationsPage extends BasePage {
 	static String NEW_YORK_IMAGE = IMAGES_FOLDER + "DestinationsPage\\new_york_carousel.jpg";
 	static String LONDON_IMAGE = IMAGES_FOLDER + "DestinationsPage\\london_carousel.jpg";
 	static String DENVER_IMAGE = IMAGES_FOLDER + "DestinationsPage\\denver_carousel.jpg";
+	static String ANY_IMAGE = IMAGES_FOLDER + "DestinationsPage\\any_image";
 
 	public static void goTo() {
 		Driver.instance.navigate().to(URL + "Destinations");
@@ -73,6 +75,14 @@ public class DestinationsPage extends BasePage {
 
 	public static boolean verifyLondonCarouselImage() {
 		Point point = new ImageSolution(LONDON_IMAGE).getCenterPoint();
+		if (point != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static boolean verifyADestinationImageIsDisplayed() {
+		Point point = new ImageSolution(ANY_IMAGE).getCenterPoint();
 		if (point != null) {
 			return true;
 		}

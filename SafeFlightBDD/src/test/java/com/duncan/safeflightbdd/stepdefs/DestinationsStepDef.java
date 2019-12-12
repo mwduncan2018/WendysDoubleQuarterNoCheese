@@ -32,6 +32,10 @@ public class DestinationsStepDef {
 		DestinationsPage.goToDenverCarouselImage();
 	}
 
+	@Then("a destination image is displayed")
+	public void a_destination_image_is_displayed() {
+		assertTrue(DestinationsPage.verifyADestinationImageIsDisplayed());
+	}
 	@Then("an image advertising New York is displayed")
 	public void an_image_advertising_New_York_is_displayed() {
 		assertTrue(DestinationsPage.verifyNewYorkCarouselImage());
