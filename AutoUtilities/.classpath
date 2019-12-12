@@ -36,6 +36,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/opencv"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/SafeFlightAutoFrame"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
