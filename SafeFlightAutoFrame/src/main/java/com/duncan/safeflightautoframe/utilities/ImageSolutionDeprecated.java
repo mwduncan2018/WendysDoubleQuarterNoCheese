@@ -16,14 +16,13 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 import org.opencv.core.Core;
-import org.opencv.core.Core.MinMaxLocResult;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
-public class ImageSolution {
+public class ImageSolutionDeprecated {
 
 	private String PROJECT_LOCATION = "C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\";
 	private String IMAGE_FOLDER = PROJECT_LOCATION + "SafeFlightAutoFrame\\src\\main\\resources\\images\\pom\\";
@@ -31,9 +30,8 @@ public class ImageSolution {
 	private String writeLocation = IMAGE_FOLDER + "match_coordinates.txt";
 	private String pythonImageSolutionExecutable = PROJECT_LOCATION + "SafeFlightAutoFrame\\src\\main\\java\\com\\duncan\\safeflightautoframe\\utilities\\image_solution.py";
 	
-	//private String template;
-	private List<Point> matchPoints = new ArrayList<Point>();
-	private List<String> templates = null;
+	private String template;
+	private List<Point> matchPoints = null;
 
 	private Point upperLeftPoint = null;
 	private Point upperRightPoint = null;
@@ -61,25 +59,9 @@ public class ImageSolution {
 		return this.lowerRightPoint;
 	}
 
-	public ImageSolution(String path) {
-		retrieveTemplates(path);
+	public ImageSolutionDeprecated(String template) {
+		this.template = IMAGE_FOLDER + template;
 		findImage();
-	}
-	
-	private void retrieveTemplates(String path) {
-		templates = new ArrayList<String>();
-		File file = new File(IMAGE_FOLDER + path);
-		if (file.isFile()) {
-			templates.add(path);
-			return;
-		}
-		if (file.isDirectory()) {
-			for ()
-		}
-		
-		
-		
-		
 	}
 
 	private void takeScreenshot() {
@@ -171,14 +153,11 @@ public class ImageSolution {
 			Imgcodecs.imwrite(IMAGE_FOLDER + "result.jpg", matScreenshot);			
 		}
 	}
-
 	
 	private void findImage() {
 		takeScreenshot();
-		while (this.matchPoints.size() == 0) {
-			runPythonScript();
-			readPythonOutputFile();			
-		}
+		runPythonScript();
+		readPythonOutputFile();
 		calculatePoints();
 	}
 	
