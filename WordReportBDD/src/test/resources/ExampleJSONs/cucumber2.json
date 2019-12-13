@@ -1,0 +1,345 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 106740900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the destinations page",
+            "match": {
+              "location": "DestinationsStepDef.I_navigate_to_the_destinations_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:54.014Z",
+        "before": [
+          {
+            "result": {
+              "duration": 7712900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 9,
+        "name": "Smoke test for the image canvas",
+        "description": "",
+        "id": "destinations-feature;smoke-test-for-the-image-canvas",
+        "after": [
+          {
+            "result": {
+              "duration": 25100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1968399200,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "a destination image is displayed",
+            "match": {
+              "location": "DestinationsStepDef.a_destination_image_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DestinationsFeature"
+          },
+          {
+            "name": "@smoke"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 80165300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the destinations page",
+            "match": {
+              "location": "DestinationsStepDef.I_navigate_to_the_destinations_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:56.102Z",
+        "before": [
+          {
+            "result": {
+              "duration": 8005000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 12,
+        "name": "New York advertisement",
+        "description": "",
+        "id": "destinations-feature;new-york-advertisement",
+        "after": [
+          {
+            "result": {
+              "duration": 54900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 980431500,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "New York is selected",
+            "match": {
+              "location": "DestinationsStepDef.New_York_is_selected()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1104094600,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "an image advertising New York is displayed",
+            "match": {
+              "location": "DestinationsStepDef.an_image_advertising_New_York_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DestinationsFeature"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 88765200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the destinations page",
+            "match": {
+              "location": "DestinationsStepDef.I_navigate_to_the_destinations_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:58.277Z",
+        "before": [
+          {
+            "result": {
+              "duration": 9430000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "London advertisement",
+        "description": "",
+        "id": "destinations-feature;london-advertisement",
+        "after": [
+          {
+            "result": {
+              "duration": 40100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 997319900,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "London is selected",
+            "match": {
+              "location": "DestinationsStepDef.London_is_selected()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1098128900,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "an image advertising London is displayed",
+            "match": {
+              "location": "DestinationsStepDef.an_image_advertising_London_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DestinationsFeature"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 64856700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the destinations page",
+            "match": {
+              "location": "DestinationsStepDef.I_navigate_to_the_destinations_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:00.472Z",
+        "before": [
+          {
+            "result": {
+              "duration": 12043700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 20,
+        "name": "Denver advertisement",
+        "description": "",
+        "id": "destinations-feature;denver-advertisement",
+        "after": [
+          {
+            "result": {
+              "duration": 44800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 988079000,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "Denver is selected",
+            "match": {
+              "location": "DestinationsStepDef.Denver_is_selected()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1073347000,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "an image advertising Denver is displayed",
+            "match": {
+              "location": "DestinationsStepDef.an_image_advertising_Denver_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DestinationsFeature"
+          }
+        ]
+      }
+    ],
+    "name": "Destinations Feature",
+    "description": "  To increase sales, advertise popular destinations with images.",
+    "id": "destinations-feature",
+    "keyword": "Feature",
+    "uri": "classpath:features/destinations.feature",
+    "tags": [
+      {
+        "name": "@DestinationsFeature",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

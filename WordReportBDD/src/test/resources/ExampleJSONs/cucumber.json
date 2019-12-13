@@ -1,0 +1,2283 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2019-12-13T01:54:31.764Z",
+        "before": [
+          {
+            "result": {
+              "duration": 543800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.beforeScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 4322716800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 7,
+        "name": "Flight with no watch list match",
+        "description": "",
+        "id": "automatic-highlighting;flight-with-no-watch-list-match",
+        "after": [
+          {
+            "result": {
+              "duration": 447840600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.afterScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 24500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3523327600,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "a flight is added with a name that is not on the watch list",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.a_flight_is_added_with_a_name_that_is_not_on_the_watch_list()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 338320100,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "the flight is displayed on the flight list page",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_displayed_on_the_Flight_List_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 258590400,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "the flight is not checked in the watch list column",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_not_checked_in_the_watch_list_column()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AutomaticHighlightingFeature"
+          },
+          {
+            "name": "@smoke"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:40.680Z",
+        "before": [
+          {
+            "result": {
+              "duration": 44400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.beforeScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 9337200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 13,
+        "name": "Flight with watch list match",
+        "description": "",
+        "id": "automatic-highlighting;flight-with-watch-list-match",
+        "after": [
+          {
+            "result": {
+              "duration": 459915400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.afterScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 34300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 338737900,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "a flight is added with a name that is on the watch list",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.a_flight_is_added_with_a_name_that_is_on_the_watch_list()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 296169900,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "the flight is displayed on the flight list page",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_displayed_on_the_Flight_List_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 258641200,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "the flight is checked in the watch list column",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_checked_in_the_watch_list_column()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AutomaticHighlightingFeature"
+          },
+          {
+            "name": "@smoke"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:42.048Z",
+        "before": [
+          {
+            "result": {
+              "duration": 67300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.beforeScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 9765400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "Flight with watch list match, data driven",
+        "description": "",
+        "id": "automatic-highlighting;flight-with-watch-list-match--data-driven;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 774559200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.afterScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 30500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 474430500,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "a flight is added with first name \"Reinhold\" and last name \"Bogner\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Reinhold\"",
+                  "offset": 34
+                },
+                {
+                  "val": "\"Bogner\"",
+                  "offset": 59
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.a_flight_is_added_with_first_name_and_last_name(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 245570700,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "a watch list entry is added with first name \"Reinhold\" and last name \"Bogner\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Reinhold\"",
+                  "offset": 44
+                },
+                {
+                  "val": "\"Bogner\"",
+                  "offset": 69
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.a_watch_list_entry_is_added_with_first_name_and_last_name(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 432858900,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "the flight is displayed on the flight list page",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_displayed_on_the_Flight_List_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 290884000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "the flight with first name \"Reinhold\" and last name \"Bogner\" is checked in the watch list column",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Reinhold\"",
+                  "offset": 27
+                },
+                {
+                  "val": "\"Bogner\"",
+                  "offset": 52
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.the_flight_with_first_name_and_last_name_is_checked_in_the_watch_list_column(String,String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AutomaticHighlightingFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:44.282Z",
+        "before": [
+          {
+            "result": {
+              "duration": 52600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.beforeScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 13432800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 28,
+        "name": "Flight with watch list match, data driven",
+        "description": "",
+        "id": "automatic-highlighting;flight-with-watch-list-match--data-driven;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 849768500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.afterScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 28400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 374654200,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "a flight is added with first name \"Randall\" and last name \"Smith\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Randall\"",
+                  "offset": 34
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 58
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.a_flight_is_added_with_first_name_and_last_name(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 278327300,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "a watch list entry is added with first name \"Randall\" and last name \"Smith\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Randall\"",
+                  "offset": 44
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 68
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.a_watch_list_entry_is_added_with_first_name_and_last_name(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 362287600,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "the flight is displayed on the flight list page",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_displayed_on_the_Flight_List_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 337466000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "the flight with first name \"Randall\" and last name \"Smith\" is checked in the watch list column",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Randall\"",
+                  "offset": 27
+                },
+                {
+                  "val": "\"Smith\"",
+                  "offset": 51
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.the_flight_with_first_name_and_last_name_is_checked_in_the_watch_list_column(String,String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AutomaticHighlightingFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:46.502Z",
+        "before": [
+          {
+            "result": {
+              "duration": 56100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.beforeScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 14234700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 29,
+        "name": "Flight with watch list match, data driven",
+        "description": "",
+        "id": "automatic-highlighting;flight-with-watch-list-match--data-driven;;4",
+        "after": [
+          {
+            "result": {
+              "duration": 895885800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.afterScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 33800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 365175900,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "a flight is added with first name \"Jerry\" and last name \"Seinfeld\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Jerry\"",
+                  "offset": 34
+                },
+                {
+                  "val": "\"Seinfeld\"",
+                  "offset": 56
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.a_flight_is_added_with_first_name_and_last_name(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 269023800,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "a watch list entry is added with first name \"Jerry\" and last name \"Seinfeld\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Jerry\"",
+                  "offset": 44
+                },
+                {
+                  "val": "\"Seinfeld\"",
+                  "offset": 66
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.a_watch_list_entry_is_added_with_first_name_and_last_name(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 498828300,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "the flight is displayed on the flight list page",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_displayed_on_the_Flight_List_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 369459600,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "the flight with first name \"Jerry\" and last name \"Seinfeld\" is checked in the watch list column",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Jerry\"",
+                  "offset": 27
+                },
+                {
+                  "val": "\"Seinfeld\"",
+                  "offset": 49
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.the_flight_with_first_name_and_last_name_is_checked_in_the_watch_list_column(String,String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AutomaticHighlightingFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:48.917Z",
+        "before": [
+          {
+            "result": {
+              "duration": 61500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.beforeScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 8886500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 39,
+        "name": "Flight with no watch list match, data driven",
+        "description": "",
+        "id": "automatic-highlighting;flight-with-no-watch-list-match--data-driven;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 520232900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.afterScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 33600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 347970800,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "a flight is added with first name \"James\" and last name \"Hetfield\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"James\"",
+                  "offset": 34
+                },
+                {
+                  "val": "\"Hetfield\"",
+                  "offset": 56
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.a_flight_is_added_with_first_name_and_last_name(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 369005800,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "the flight is displayed on the flight list page",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_displayed_on_the_Flight_List_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 318532500,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "the flight with first name \"James\" and last name \"Hetfield\" is not checked in the watch list column",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"James\"",
+                  "offset": 27
+                },
+                {
+                  "val": "\"Hetfield\"",
+                  "offset": 49
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.the_flight_with_first_name_and_last_name_is_not_checked_in_the_watch_list_column(String,String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AutomaticHighlightingFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:50.487Z",
+        "before": [
+          {
+            "result": {
+              "duration": 58100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.beforeScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 15110400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 40,
+        "name": "Flight with no watch list match, data driven",
+        "description": "",
+        "id": "automatic-highlighting;flight-with-no-watch-list-match--data-driven;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 677172600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.afterScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 33100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 341764700,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "a flight is added with first name \"Kirk\" and last name \"Hammett\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Kirk\"",
+                  "offset": 34
+                },
+                {
+                  "val": "\"Hammett\"",
+                  "offset": 55
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.a_flight_is_added_with_first_name_and_last_name(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 389736200,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "the flight is displayed on the flight list page",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_displayed_on_the_Flight_List_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 332801400,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "the flight with first name \"Kirk\" and last name \"Hammett\" is not checked in the watch list column",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Kirk\"",
+                  "offset": 27
+                },
+                {
+                  "val": "\"Hammett\"",
+                  "offset": 48
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.the_flight_with_first_name_and_last_name_is_not_checked_in_the_watch_list_column(String,String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AutomaticHighlightingFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:52.247Z",
+        "before": [
+          {
+            "result": {
+              "duration": 49100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.beforeScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 6773600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 41,
+        "name": "Flight with no watch list match, data driven",
+        "description": "",
+        "id": "automatic-highlighting;flight-with-no-watch-list-match--data-driven;;4",
+        "after": [
+          {
+            "result": {
+              "duration": 539687500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AutomaticHighlightingStepDef.afterScenario()"
+            }
+          },
+          {
+            "result": {
+              "duration": 31100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 401138900,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "a flight is added with first name \"Dave\" and last name \"Mustaine\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Dave\"",
+                  "offset": 34
+                },
+                {
+                  "val": "\"Mustaine\"",
+                  "offset": 55
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.a_flight_is_added_with_first_name_and_last_name(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 432193900,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "the flight is displayed on the flight list page",
+            "match": {
+              "location": "AutomaticHighlightingStepDef.the_flight_is_displayed_on_the_Flight_List_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 384413800,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "the flight with first name \"Dave\" and last name \"Mustaine\" is not checked in the watch list column",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Dave\"",
+                  "offset": 27
+                },
+                {
+                  "val": "\"Mustaine\"",
+                  "offset": 48
+                }
+              ],
+              "location": "AutomaticHighlightingStepDef.the_flight_with_first_name_and_last_name_is_not_checked_in_the_watch_list_column(String,String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AutomaticHighlightingFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      }
+    ],
+    "name": "Automatic Highlighting",
+    "description": "  For the security of airline transportation, any person on the watch list\n  that books a flight should be highlighted for easy identification.",
+    "id": "automatic-highlighting",
+    "keyword": "Feature",
+    "uri": "classpath:features/automatic_highlighting.feature",
+    "tags": [
+      {
+        "name": "@AutomaticHighlightingFeature",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 106740900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the destinations page",
+            "match": {
+              "location": "DestinationsStepDef.I_navigate_to_the_destinations_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:54.014Z",
+        "before": [
+          {
+            "result": {
+              "duration": 7712900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 9,
+        "name": "Smoke test for the image canvas",
+        "description": "",
+        "id": "destinations-feature;smoke-test-for-the-image-canvas",
+        "after": [
+          {
+            "result": {
+              "duration": 25100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1968399200,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "a destination image is displayed",
+            "match": {
+              "location": "DestinationsStepDef.a_destination_image_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DestinationsFeature"
+          },
+          {
+            "name": "@smoke"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 80165300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the destinations page",
+            "match": {
+              "location": "DestinationsStepDef.I_navigate_to_the_destinations_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:56.102Z",
+        "before": [
+          {
+            "result": {
+              "duration": 8005000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 12,
+        "name": "New York advertisement",
+        "description": "",
+        "id": "destinations-feature;new-york-advertisement",
+        "after": [
+          {
+            "result": {
+              "duration": 54900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 980431500,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "New York is selected",
+            "match": {
+              "location": "DestinationsStepDef.New_York_is_selected()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1104094600,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "an image advertising New York is displayed",
+            "match": {
+              "location": "DestinationsStepDef.an_image_advertising_New_York_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DestinationsFeature"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 88765200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the destinations page",
+            "match": {
+              "location": "DestinationsStepDef.I_navigate_to_the_destinations_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:54:58.277Z",
+        "before": [
+          {
+            "result": {
+              "duration": 9430000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "London advertisement",
+        "description": "",
+        "id": "destinations-feature;london-advertisement",
+        "after": [
+          {
+            "result": {
+              "duration": 40100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 997319900,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "London is selected",
+            "match": {
+              "location": "DestinationsStepDef.London_is_selected()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1098128900,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "an image advertising London is displayed",
+            "match": {
+              "location": "DestinationsStepDef.an_image_advertising_London_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DestinationsFeature"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 64856700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the destinations page",
+            "match": {
+              "location": "DestinationsStepDef.I_navigate_to_the_destinations_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:00.472Z",
+        "before": [
+          {
+            "result": {
+              "duration": 12043700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 20,
+        "name": "Denver advertisement",
+        "description": "",
+        "id": "destinations-feature;denver-advertisement",
+        "after": [
+          {
+            "result": {
+              "duration": 44800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 988079000,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "Denver is selected",
+            "match": {
+              "location": "DestinationsStepDef.Denver_is_selected()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1073347000,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "an image advertising Denver is displayed",
+            "match": {
+              "location": "DestinationsStepDef.an_image_advertising_Denver_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DestinationsFeature"
+          }
+        ]
+      }
+    ],
+    "name": "Destinations Feature",
+    "description": "  To increase sales, advertise popular destinations with images.",
+    "id": "destinations-feature",
+    "keyword": "Feature",
+    "uri": "classpath:features/destinations.feature",
+    "tags": [
+      {
+        "name": "@DestinationsFeature",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 82021400,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:02.613Z",
+        "before": [
+          {
+            "result": {
+              "duration": 9462600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 9,
+        "name": "Blank username, blank password",
+        "description": "",
+        "id": "login-functionality-and-validations;blank-username--blank-password",
+        "after": [
+          {
+            "result": {
+              "duration": 22300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 281399800,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I login with a blank username field and a blank password field",
+            "match": {
+              "location": "LoginStepDef.I_login_with_a_blank_username_field_and_a_blank_password_field()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 11259300,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "a validation message stating that the username field is required is displayed",
+            "match": {
+              "location": "LoginStepDef.a_validation_message_stating_that_the_username_field_is_required_is_displayed()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 12149900,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "a validation message stating that the password field is required is displayed",
+            "match": {
+              "location": "LoginStepDef.a_validation_message_stating_that_the_password_field_is_required_is_displayed()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@smoke"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 81437700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:03.014Z",
+        "before": [
+          {
+            "result": {
+              "duration": 6568000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 15,
+        "name": "Valid username, valid password",
+        "description": "",
+        "id": "login-functionality-and-validations;valid-username--valid-password",
+        "after": [
+          {
+            "result": {
+              "duration": 24700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 313542600,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I login with a valid username field and a valid password field",
+            "match": {
+              "location": "LoginStepDef.I_login_with_a_valid_username_field_and_a_valid_password_field()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 18972500,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I am redirected to the flights page",
+            "match": {
+              "location": "LoginStepDef.I_am_redirected_to_the_flights_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@smoke"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 63962600,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:03.436Z",
+        "before": [
+          {
+            "result": {
+              "duration": 6342000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 26,
+        "name": "Valid username, valid password, data driven",
+        "description": "",
+        "id": "login-functionality-and-validations;valid-username--valid-password--data-driven;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 22800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 171529200,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "I login with username \"mduncan\" and password \"cucumber\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"mduncan\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"cucumber\"",
+                  "offset": 45
+                }
+              ],
+              "location": "LoginStepDef.I_login_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 10056400,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I am redirected to the flights page",
+            "match": {
+              "location": "LoginStepDef.I_am_redirected_to_the_flights_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 60859200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:03.692Z",
+        "before": [
+          {
+            "result": {
+              "duration": 8248400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "Valid username, valid password, data driven",
+        "description": "",
+        "id": "login-functionality-and-validations;valid-username--valid-password--data-driven;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 408900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 187497700,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "I login with username \"tduncan\" and password \"airforce1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"tduncan\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"airforce1\"",
+                  "offset": 45
+                }
+              ],
+              "location": "LoginStepDef.I_login_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 14695600,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I am redirected to the flights page",
+            "match": {
+              "location": "LoginStepDef.I_am_redirected_to_the_flights_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 72555100,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:03.965Z",
+        "before": [
+          {
+            "result": {
+              "duration": 6937400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 28,
+        "name": "Valid username, valid password, data driven",
+        "description": "",
+        "id": "login-functionality-and-validations;valid-username--valid-password--data-driven;;4",
+        "after": [
+          {
+            "result": {
+              "duration": 46800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 169154900,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "I login with username \"eangone\" and password \"achievedhappiness\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"eangone\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"achievedhappiness\"",
+                  "offset": 45
+                }
+              ],
+              "location": "LoginStepDef.I_login_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 14720400,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I am redirected to the flights page",
+            "match": {
+              "location": "LoginStepDef.I_am_redirected_to_the_flights_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 64932600,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:04.231Z",
+        "before": [
+          {
+            "result": {
+              "duration": 7470500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 29,
+        "name": "Valid username, valid password, data driven",
+        "description": "",
+        "id": "login-functionality-and-validations;valid-username--valid-password--data-driven;;5",
+        "after": [
+          {
+            "result": {
+              "duration": 24300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 178310800,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "I login with username \"sharford\" and password \"michigan\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"sharford\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"michigan\"",
+                  "offset": 46
+                }
+              ],
+              "location": "LoginStepDef.I_login_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 13027100,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I am redirected to the flights page",
+            "match": {
+              "location": "LoginStepDef.I_am_redirected_to_the_flights_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 61537700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:04.497Z",
+        "before": [
+          {
+            "result": {
+              "duration": 9218100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 30,
+        "name": "Valid username, valid password, data driven",
+        "description": "",
+        "id": "login-functionality-and-validations;valid-username--valid-password--data-driven;;6",
+        "after": [
+          {
+            "result": {
+              "duration": 31200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 196139700,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "I login with username \"gduncan\" and password \"mommom\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"gduncan\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"mommom\"",
+                  "offset": 45
+                }
+              ],
+              "location": "LoginStepDef.I_login_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 17389700,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I am redirected to the flights page",
+            "match": {
+              "location": "LoginStepDef.I_am_redirected_to_the_flights_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 71095300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:04.783Z",
+        "before": [
+          {
+            "result": {
+              "duration": 4125300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 39,
+        "name": "Invalid username, invalid password, data driven",
+        "description": "",
+        "id": "login-functionality-and-validations;invalid-username--invalid-password--data-driven;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 23800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 189483200,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "I login with username \"mdunca1\" and password \"cucumber\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"mdunca1\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"cucumber\"",
+                  "offset": 45
+                }
+              ],
+              "location": "LoginStepDef.I_login_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 15233500,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "a validation message stating that the username and password combination is invalid is displayed",
+            "match": {
+              "location": "LoginStepDef.a_validation_message_stating_that_the_username_and_password_combination_is_invalid_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 60708800,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:05.066Z",
+        "before": [
+          {
+            "result": {
+              "duration": 5392600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 40,
+        "name": "Invalid username, invalid password, data driven",
+        "description": "",
+        "id": "login-functionality-and-validations;invalid-username--invalid-password--data-driven;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 19400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 180070600,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "I login with username \"angone1\" and password \"cucumber\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"angone1\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"cucumber\"",
+                  "offset": 45
+                }
+              ],
+              "location": "LoginStepDef.I_login_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 22647500,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "a validation message stating that the username and password combination is invalid is displayed",
+            "match": {
+              "location": "LoginStepDef.a_validation_message_stating_that_the_username_and_password_combination_is_invalid_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      },
+      {
+        "line": 5,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 73677500,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "LoginStepDef.I_navigate_to_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-12-13T01:55:05.336Z",
+        "before": [
+          {
+            "result": {
+              "duration": 6059500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 41,
+        "name": "Invalid username, invalid password, data driven",
+        "description": "",
+        "id": "login-functionality-and-validations;invalid-username--invalid-password--data-driven;;4",
+        "after": [
+          {
+            "result": {
+              "duration": 19000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 155314100,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "I login with username \"travis1\" and password \"cucumber\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"travis1\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"cucumber\"",
+                  "offset": 45
+                }
+              ],
+              "location": "LoginStepDef.I_login_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 14615800,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "a validation message stating that the username and password combination is invalid is displayed",
+            "match": {
+              "location": "LoginStepDef.a_validation_message_stating_that_the_username_and_password_combination_is_invalid_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@LoginFeature"
+          },
+          {
+            "name": "@regression"
+          }
+        ]
+      }
+    ],
+    "name": "Login functionality and validations",
+    "description": "  There should be login functionality including validations and proper redirection after a successful login.",
+    "id": "login-functionality-and-validations",
+    "keyword": "Feature",
+    "uri": "classpath:features/login.feature",
+    "tags": [
+      {
+        "name": "@LoginFeature",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
