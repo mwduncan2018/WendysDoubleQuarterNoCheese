@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		snippets = SnippetType.UNDERSCORE,
 		// features = "src/test/resources"
 		features = "classpath:features")
-public class RunCucumber {
+public class RunCucumberTest {
 
 
 	@BeforeClass
@@ -36,7 +36,7 @@ public class RunCucumber {
 	}
 	
 	@AfterClass
-	public static void globalTearDown() {
+	public static void globalTearDown() throws InterruptedException {
 		System.out.println("************************************************************************************");
 		System.out.println("************************************************************************************");
 		System.out.println("************************************************************************************");
@@ -46,6 +46,11 @@ public class RunCucumber {
 		System.out.println("************************************************************************************");
 		System.out.println("************************************************************************************");
 		System.out.println("************************************************************************************");
+		
+		for (int i = 0; i < 60; i++) {
+			Thread.sleep(1000);
+			System.out.println("        waiting... " + ((Integer)i).toString());
+		}
 		Driver.close();
 	}
 	

@@ -31,6 +31,11 @@
 			<artifactId>selenium-chrome-driver</artifactId>
 			<version>4.0.0-alpha-1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.duncan.autoutilities</groupId>
+			<artifactId>AutoUtilities</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
