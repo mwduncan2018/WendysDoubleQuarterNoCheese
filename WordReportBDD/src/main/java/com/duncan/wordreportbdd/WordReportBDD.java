@@ -77,6 +77,10 @@ public class WordReportBDD {
 					featureVM.getBackgrounds().add(backgroundVM);
 				}
 			}
+			
+			
+			
+			
 		}
 
 		// if the background of a feature fails, the entire feature fails
