@@ -10,6 +10,11 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 import com.duncan.wordreportbdd.cucumberjsonpojo.CucumberJsonPojo;
+import com.duncan.wordreportbdd.cucumberjsonpojo.Element;
+import com.duncan.wordreportbdd.cucumberjsonpojo.Step;
+import com.duncan.wordreportbdd.viewmodels.BackgroundViewModel;
+import com.duncan.wordreportbdd.viewmodels.FeatureViewModel;
+import com.duncan.wordreportbdd.viewmodels.StepViewModel;
 import com.duncan.wordreportbdd.viewmodels.WordReportViewModel;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -51,15 +56,31 @@ public class WordReportBDD {
 
 	private void initializeWordReportViewModel() {
 		wordReportViewModel = new WordReportViewModel();
-		
+
 		for (CucumberJsonPojo feature : root) {
-			
+			FeatureViewModel featureVM = new FeatureViewModel();
+
+			// Get the backgrounds
+			for (Element element : feature.getElements()) {
+				if (element.getType().equals("background")) {
+					BackgroundViewModel backgroundVM = new BackgroundViewModel();
+
+					// Get the steps
+					for (Step step : element.getSteps()) {
+						StepViewModel stepVM = new StepViewModel();
+						stepVM.setName(step.getName());
+						stepVM.setKeyword(step.getKeyword());
+						stepVM.setPass(step.getResult().getStatus().equals("passed"));
+						backgroundVM.getSteps().add(stepVM);
+					}
+					
+					featureVM.getBackgrounds().add(backgroundVM);
+				}
+			}
 		}
-		
+
 		// if the background of a feature fails, the entire feature fails
-		
-		
-		
+
 		// if any step of a scenario fails, the entire scenario fails
 
 	}
