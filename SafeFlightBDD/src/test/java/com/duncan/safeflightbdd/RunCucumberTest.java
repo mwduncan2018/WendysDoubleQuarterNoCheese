@@ -1,10 +1,13 @@
 package com.duncan.safeflightbdd;
 
+import java.io.FileNotFoundException;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import com.duncan.safeflightautoframe.pom.Driver;
+import com.duncan.wordreportbdd.WordReportBDD;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -36,7 +39,7 @@ public class RunCucumberTest {
 	}
 	
 	@AfterClass
-	public static void globalTearDown() throws InterruptedException {
+	public static void globalTearDown() {
 		System.out.println("************************************************************************************");
 		System.out.println("************************************************************************************");
 		System.out.println("************************************************************************************");
@@ -49,8 +52,10 @@ public class RunCucumberTest {
 		Driver.close();
 		
 		// Create Word report with Apache POI
-		
-		
+		WordReportBDD word = new WordReportBDD();
+		word.setCucumberJsonPath("C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\SafeFlightBDD\\target\\cucumber.json");
+		word.setWritePath("C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\WordReportBDD\\target\\cucumber.docx");
+		word.generateReport();
 	}
 	
 }
