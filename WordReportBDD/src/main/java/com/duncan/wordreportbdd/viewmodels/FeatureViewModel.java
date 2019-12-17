@@ -7,7 +7,7 @@ public class FeatureViewModel {
 
 	private String name;
 	private String description;
-	private Boolean pass = null; // pass or fail
+	private String status; // pass or fail
 	private List<BackgroundViewModel> backgrounds = new ArrayList<BackgroundViewModel>();
 	private List<ScenarioViewModel> scenarios = new ArrayList<ScenarioViewModel>();
 
@@ -35,12 +35,12 @@ public class FeatureViewModel {
 		this.description = description;
 	}
 
-	public Boolean getPass() {
-		return pass;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setPass(Boolean pass) {
-		this.pass = pass;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public List<ScenarioViewModel> getScenarios() {

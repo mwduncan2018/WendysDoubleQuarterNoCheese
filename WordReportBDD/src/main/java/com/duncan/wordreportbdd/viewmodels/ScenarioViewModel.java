@@ -6,7 +6,7 @@ import java.util.List;
 public class ScenarioViewModel {
 	private String name;
 	private String description;
-	private Boolean pass = null; // pass or fail
+	private String status; // pass or fail
 
 	private List<StepViewModel> beforeSteps = new ArrayList<StepViewModel>();
 	private List<StepViewModel> steps = new ArrayList<StepViewModel>();
@@ -28,12 +28,12 @@ public class ScenarioViewModel {
 		this.description = description;
 	}
 
-	public Boolean getPass() {
-		return pass;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setPass(Boolean pass) {
-		this.pass = pass;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public List<StepViewModel> getBeforeSteps() {

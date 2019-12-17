@@ -4,7 +4,16 @@ public class StepViewModel {
 
 	private String keyword; // Given, When, or Then
 	private String name; // description text
-	private Boolean pass = null; // pass or fail
+	private String status; // pass or fail
+	private String errorMessage;
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
 
 	public String getKeyword() {
 		return keyword;
@@ -22,12 +31,12 @@ public class StepViewModel {
 		this.name = name;
 	}
 
-	public Boolean getPass() {
-		return pass;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setPass(Boolean pass) {
-		this.pass = pass;
+	public void setStatus(String pass) {
+		this.status = pass;
 	}
 
 }

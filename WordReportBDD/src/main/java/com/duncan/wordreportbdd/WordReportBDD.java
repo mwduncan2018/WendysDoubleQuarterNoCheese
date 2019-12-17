@@ -20,6 +20,7 @@ import com.duncan.wordreportbdd.cucumberjsonpojo.Before;
 import com.duncan.wordreportbdd.cucumberjsonpojo.CucumberJsonPojo;
 import com.duncan.wordreportbdd.cucumberjsonpojo.Element;
 import com.duncan.wordreportbdd.cucumberjsonpojo.Step;
+import com.duncan.wordreportbdd.utilities.ColorToRGB;
 import com.duncan.wordreportbdd.viewmodels.BackgroundViewModel;
 import com.duncan.wordreportbdd.viewmodels.BeforeViewModel;
 import com.duncan.wordreportbdd.viewmodels.FeatureViewModel;
@@ -76,8 +77,7 @@ public class WordReportBDD {
 
 		for (CucumberJsonPojo feature : root) {
 			FeatureViewModel featureVM = new FeatureViewModel();
-			featureVM.setDescription(feature.getDescription().trim()
-					.replaceAll("\\R", " ").replaceAll("\\s{2,}", ""));
+			featureVM.setDescription(feature.getDescription().trim().replaceAll("\\R", " ").replaceAll("\\s{2,}", ""));
 			featureVM.setName(feature.getName().trim().replaceAll("\\s{2,}", ""));
 
 			Boolean featurePass = true;
@@ -92,8 +92,9 @@ public class WordReportBDD {
 						StepViewModel stepVM = new StepViewModel();
 						stepVM.setName(step.getName().trim().replaceAll("\\s{2,}", ""));
 						stepVM.setKeyword(step.getKeyword().trim().replaceAll("\\s{2,}", ""));
-						stepVM.setPass(step.getResult().getStatus().equals("passed"));
-						if (stepVM.getPass().equals(false)) {
+						stepVM.setStatus(step.getResult().getStatus());
+						stepVM.setErrorMessage(step.getResult().getError_message());
+						if (!stepVM.getStatus().equals("passed")) {
 							featurePass = false; // if any background step fails, the feature fails
 						}
 						backgroundVM.getSteps().add(stepVM);
@@ -115,8 +116,9 @@ public class WordReportBDD {
 					// Get the before steps
 					for (Before beforeStep : element.getBefore()) {
 						StepViewModel stepVM = new StepViewModel();
-						stepVM.setPass(beforeStep.getResult().getStatus().equals("passed"));
-						if (stepVM.getPass().equals(false)) {
+						stepVM.setStatus(beforeStep.getResult().getStatus());
+						stepVM.setErrorMessage(beforeStep.getResult().getError_message());
+						if (!stepVM.getStatus().equals("passed")) {
 							scenarioPass = false; // if any before step fails, the scenario fails
 							featurePass = false; // if any before step fails, the feature fails
 						}
@@ -128,8 +130,9 @@ public class WordReportBDD {
 						StepViewModel stepVM = new StepViewModel();
 						stepVM.setName(step.getName().trim().replaceAll("\\s{2,}", ""));
 						stepVM.setKeyword(step.getKeyword().trim().replaceAll("\\s{2,}", ""));
-						stepVM.setPass(step.getResult().getStatus().equals("passed"));
-						if (stepVM.getPass().equals(false)) {
+						stepVM.setStatus(step.getResult().getStatus());
+						stepVM.setErrorMessage(step.getResult().getError_message());
+						if (!stepVM.getStatus().equals("passed")) {
 							scenarioPass = false; // if any step fails, the scenario fails
 							featurePass = false; // if any step fails, the feature fails
 						}
@@ -139,20 +142,29 @@ public class WordReportBDD {
 					// Get the after steps
 					for (After afterStep : element.getAfter()) {
 						StepViewModel stepVM = new StepViewModel();
-						stepVM.setPass(afterStep.getResult().getStatus().equals("passed"));
-						if (stepVM.getPass().equals(false)) {
+						stepVM.setStatus(afterStep.getResult().getStatus());
+						stepVM.setErrorMessage(afterStep.getResult().getError_message());
+						if (!stepVM.getStatus().equals("passed")) {
 							scenarioPass = false; // if any after step fails, the scenario fails
 							featurePass = false; // if any after step fails, the feature fails
 						}
 						scenarioVM.getAfterSteps().add(stepVM);
 					}
 
-					scenarioVM.setPass(scenarioPass);
+					if (scenarioPass) {
+						scenarioVM.setStatus("passed");
+					} else {
+						scenarioVM.setStatus("failed");
+					}
 					featureVM.getScenarios().add(scenarioVM);
 				}
 			}
 
-			featureVM.setPass(featurePass);
+			if (featurePass) {
+				featureVM.setStatus("passed");
+			} else {
+				featureVM.setStatus("failed");
+			}
 			wordReportViewModel.getFeatures().add(featureVM);
 		}
 	}
@@ -216,10 +228,60 @@ public class WordReportBDD {
 				XWPFParagraph featureInfoParagraph = doc.createParagraph();
 				featureInfoParagraph.setAlignment(ParagraphAlignment.LEFT);
 				run = featureInfoParagraph.createRun();
+				run.setBold(true);
 				run.setText("Feature: " + featureVM.getName());
 				run.addCarriageReturn();
+				run = featureInfoParagraph.createRun();
 				run.setText("Description: " + featureVM.getDescription());
 				run.addCarriageReturn();
+
+				for (ScenarioViewModel scenarioVM : featureVM.getScenarios()) {
+
+					// Display Scenario
+					XWPFParagraph scenarioParagraph = doc.createParagraph();
+					scenarioParagraph.setAlignment(ParagraphAlignment.LEFT);
+					run = scenarioParagraph.createRun();
+					run.setText("Scenario (aka Test): " + scenarioVM.getName());
+					run.addCarriageReturn();
+					if (scenarioVM.getStatus().equals("failed")) {
+						run = scenarioParagraph.createRun();
+						run.setColor(ColorToRGB.get("RED"));
+						run.setBold(true);
+						run.setText("Status: " + scenarioVM.getStatus());
+						run.addCarriageReturn();
+						run = scenarioParagraph.createRun();
+						run.setColor(ColorToRGB.get("RED"));
+						run.setBold(false);
+						run.setFontSize(8);
+						for (StepViewModel stepVM : scenarioVM.getBeforeSteps()) {
+							if (stepVM.getErrorMessage() != null) {
+								run.setText("Error Message: " + stepVM.getErrorMessage());
+								run.addCarriageReturn();
+							}
+						}
+						for (StepViewModel stepVM : scenarioVM.getSteps()) {
+							if (stepVM.getErrorMessage() != null) {
+								run.setText("Error Message: " + stepVM.getErrorMessage());
+								run.addCarriageReturn();
+							}
+						}
+						for (StepViewModel stepVM : scenarioVM.getAfterSteps()) {
+							if (stepVM.getErrorMessage() != null) {
+								run.setText("Error Message: " + stepVM.getErrorMessage());
+								run.addCarriageReturn();
+							}
+						}
+
+					} else {
+						run = scenarioParagraph.createRun();
+						run.setColor(ColorToRGB.get("DARKGREEN"));
+						run.setBold(true);
+						run.setText("Status: " + scenarioVM.getStatus());
+					}
+
+					run.addCarriageReturn();
+
+				}
 
 			}
 

@@ -21,3 +21,6 @@ Feature: Destinations Feature
     When Denver is selected
     Then an image advertising Denver is displayed
 	
+  Scenario: Forced Failure
+    When New York is selected
+	Then an image advertising Denver is displayed
