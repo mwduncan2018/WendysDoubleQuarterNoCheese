@@ -8,9 +8,9 @@ public class ScenarioViewModel {
 	private String description;
 	private Boolean pass = null; // pass or fail
 
-	private List<BeforeViewModel> beforeSteps = new ArrayList<BeforeViewModel>();
+	private List<StepViewModel> beforeSteps = new ArrayList<StepViewModel>();
 	private List<StepViewModel> steps = new ArrayList<StepViewModel>();
-	private List<AfterViewModel> afterSteps = new ArrayList<AfterViewModel>();
+	private List<StepViewModel> afterSteps = new ArrayList<StepViewModel>();
 
 	public String getName() {
 		return name;
@@ -36,11 +36,11 @@ public class ScenarioViewModel {
 		this.pass = pass;
 	}
 
-	public List<BeforeViewModel> getBeforeSteps() {
+	public List<StepViewModel> getBeforeSteps() {
 		return beforeSteps;
 	}
 
-	public void setBeforeSteps(List<BeforeViewModel> beforeSteps) {
+	public void setBeforeSteps(List<StepViewModel> beforeSteps) {
 		this.beforeSteps = beforeSteps;
 	}
 
@@ -52,11 +52,11 @@ public class ScenarioViewModel {
 		this.steps = steps;
 	}
 
-	public List<AfterViewModel> getAfterSteps() {
+	public List<StepViewModel> getAfterSteps() {
 		return afterSteps;
 	}
 
-	public void setAfterSteps(List<AfterViewModel> afterSteps) {
+	public void setAfterSteps(List<StepViewModel> afterSteps) {
 		this.afterSteps = afterSteps;
 	}
 

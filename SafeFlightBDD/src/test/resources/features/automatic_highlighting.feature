@@ -1,7 +1,6 @@
 @AutomaticHighlightingFeature
 Feature: Automatic Highlighting
-  For the security of airline transportation, any person on the watch list
-  that books a flight should be highlighted for easy identification.
+  For the security of airline transportation, any person on the watch list that books a flight should be highlighted for easy identification.
 
   @smoke
   Scenario: Flight with no watch list match
