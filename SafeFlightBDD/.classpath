@@ -35,6 +35,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/SafeFlightAutoFrame"/>
-	<classpathentry kind="src" path="/WordReportBDD"/>
+	<classpathentry kind="src" path="/ReportBDD"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
