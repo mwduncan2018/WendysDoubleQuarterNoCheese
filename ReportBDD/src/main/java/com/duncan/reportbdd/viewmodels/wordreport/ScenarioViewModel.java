@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScenarioViewModel {
+	
 	private String name;
 	private String description;
-	private String status; // pass or fail
+	private String status;
 
 	private List<StepViewModel> backgrounds = new ArrayList<StepViewModel>();
 	private List<StepViewModel> beforeHooks = new ArrayList<StepViewModel>();

@@ -59,7 +59,8 @@ public class WordReportView {
 			XWPFParagraph summaryParagraph = doc.createParagraph();
 			summaryParagraph.setAlignment(ParagraphAlignment.LEFT);
 			run = summaryParagraph.createRun();
-			run.setText("Tests Passed: " + vm.getNumTestsPassed());
+			run.setText("Tests Passed: " + "not implemented");
+			run.setText("Tests Passed: " + "not implemented");
 			run.addCarriageReturn();
 
 			// Test Results Heading

@@ -2,23 +2,17 @@ package com.duncan.reportbdd.viewmodels.wordreport;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FeatureViewModel {
 
 	private String name;
 	private String description;
-	private String status; // pass or fail
-	private List<ScenarioViewModel> scenarios = new ArrayList<ScenarioViewModel>();
-
-	public Integer getNumTestsPassed() {
-		//return scenarios.stream().map(x -> x.getStatus)
-		
-	}
+	private String status;
 	
-	public Integer getNumTestsFailed() {
-		
-		return 0;
-	}
+	private List<ScenarioViewModel> scenarios = new ArrayList<ScenarioViewModel>();
+	private Integer numberScenariosPassed;
+	private Integer numberScenariosFailed;
 	
 	public String getName() {
 		return name;
@@ -30,6 +24,22 @@ public class FeatureViewModel {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public Integer getNumberScenariosPassed() {
+		return numberScenariosPassed;
+	}
+
+	public void setNumberScenariosPassed(Integer numberScenariosPassed) {
+		this.numberScenariosPassed = numberScenariosPassed;
+	}
+
+	public Integer getNumberScenariosFailed() {
+		return numberScenariosFailed;
+	}
+
+	public void setNumberScenariosFailed(Integer numberScenariosFailed) {
+		this.numberScenariosFailed = numberScenariosFailed;
 	}
 
 	public void setDescription(String description) {

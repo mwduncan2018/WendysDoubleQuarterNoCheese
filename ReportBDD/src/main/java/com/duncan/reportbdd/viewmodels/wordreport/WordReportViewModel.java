@@ -10,19 +10,29 @@ public class WordReportViewModel {
 	private String department;
 	private String date;
 	private String introParagraph;
-
+	
 	private List<FeatureViewModel> features = new ArrayList<FeatureViewModel>();
-
-	public Integer getNumTestsPassed() {
-		return features.stream().map(x -> x.getNumTestsPassed()).collect(Collectors.summingInt(Integer::intValue));
-	}
-
-	public Integer getNumTestsFailed() {
-		return features.stream().map(x -> x.getNumTestsFailed()).collect(Collectors.summingInt(Integer::intValue));
-	}
+	private Integer numberFeaturesPassed;
+	private Integer numberFeaturesFailed;
 
 	public String getTitle() {
 		return title;
+	}
+
+	public Integer getNumberFeaturesPassed() {
+		return numberFeaturesPassed;
+	}
+
+	public void setNumberFeaturesPassed(Integer numberFeaturesPassed) {
+		this.numberFeaturesPassed = numberFeaturesPassed;
+	}
+
+	public Integer getNumberFeaturesFailed() {
+		return numberFeaturesFailed;
+	}
+
+	public void setNumberFeaturesFailed(Integer numberFeaturesFailed) {
+		this.numberFeaturesFailed = numberFeaturesFailed;
 	}
 
 	public void setTitle(String title) {

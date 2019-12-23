@@ -1,5 +1,10 @@
 package com.duncan.reportbdd.controllers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.duncan.reportbdd.models.cucumberjsonpojo.After;
 import com.duncan.reportbdd.models.cucumberjsonpojo.Before;
 import com.duncan.reportbdd.models.cucumberjsonpojo.CucumberJsonPojo;
@@ -23,6 +28,11 @@ public class WordReportController extends ReportController {
 	}
 
 	private void initializeViewModel() {
+		
+		//return scenarios.stream().map(x -> x.getStatus()).collect(Collectors.summingInt(Integer::intValue));
+		//return features.stream().map(x -> x.getNumTestsPassed()).collect(Collectors.summingInt(Integer::intValue));
+		//return features.stream().map(x -> x.getNumTestsFailed()).collect(Collectors.summingInt(Integer::intValue));
+		
 		wordReportViewModel = new WordReportViewModel();
 
 		for (CucumberJsonPojo feature : root) {
@@ -30,90 +40,66 @@ public class WordReportController extends ReportController {
 			featureVM.setDescription(feature.getDescription().trim().replaceAll("\\R", " ").replaceAll("\\s{2,}", ""));
 			featureVM.setName(feature.getName().trim().replaceAll("\\s{2,}", ""));
 
-			Boolean featurePass = true;
-
-			// Get the backgrounds
-			for (Element element : feature.getElements()) {
-				if (element.getType().equals("background")) {
-					StepViewModel backgroundVM = new StepViewModel();
-
-					// Get the background steps
-					for (Step step : element.getSteps()) {
+			List<Element> elements = Arrays.asList(feature.getElements()); 			
+			for (int i = 0; i < elements.size(); i++) {
+				ScenarioViewModel scenarioVM = new ScenarioViewModel();
+	
+				// Background Steps
+				List<StepViewModel> backgrounds = new ArrayList<StepViewModel>();
+				while (elements.get(i).getType().equals("background")) {
+					for (Step step : elements.get(i).getSteps()) {
 						StepViewModel stepVM = new StepViewModel();
-						stepVM.setName(step.getName().trim().replaceAll("\\s{2,}", ""));
-						stepVM.setKeyword(step.getKeyword().trim().replaceAll("\\s{2,}", ""));
-						stepVM.setStatus(step.getResult().getStatus());
+						stepVM.setDuration(step.getResult().getDuration());
 						stepVM.setErrorMessage(step.getResult().getError_message());
-						if (!stepVM.getStatus().equals("passed")) {
-							featurePass = false; // if any background step fails, the feature fails
-						}
-						backgroundVM.getSteps().add(stepVM);
-					}
-
-					featureVM.getBackgrounds().add(backgroundVM);
-				}
-			}
-
-			// Get the scenarios
-			for (Element element : feature.getElements()) {
-				if (element.getType().equals("scenario")) {
-					ScenarioViewModel scenarioVM = new ScenarioViewModel();
-					scenarioVM.setDescription(element.getDescription().trim().replaceAll("\\s{2,}", ""));
-					scenarioVM.setName(element.getName().trim().replaceAll("\\s{2,}", ""));
-
-					Boolean scenarioPass = true;
-
-					// Get the before steps
-					for (Before beforeStep : element.getBefore()) {
-						StepViewModel stepVM = new StepViewModel();
-						stepVM.setStatus(beforeStep.getResult().getStatus());
-						stepVM.setErrorMessage(beforeStep.getResult().getError_message());
-						if (!stepVM.getStatus().equals("passed")) {
-							scenarioPass = false; // if any before step fails, the scenario fails
-							featurePass = false; // if any before step fails, the feature fails
-						}
-						scenarioVM.getBeforeSteps().add(stepVM);
-					}
-
-					// Get the steps
-					for (Step step : element.getSteps()) {
-						StepViewModel stepVM = new StepViewModel();
-						stepVM.setName(step.getName().trim().replaceAll("\\s{2,}", ""));
-						stepVM.setKeyword(step.getKeyword().trim().replaceAll("\\s{2,}", ""));
+						stepVM.setKeyword(step.getKeyword());
+						stepVM.setName(step.getName());
 						stepVM.setStatus(step.getResult().getStatus());
-						stepVM.setErrorMessage(step.getResult().getError_message());
-						if (!stepVM.getStatus().equals("passed")) {
-							scenarioPass = false; // if any step fails, the scenario fails
-							featurePass = false; // if any step fails, the feature fails
-						}
-						scenarioVM.getSteps().add(stepVM);
+						backgrounds.add(stepVM);
+						i++;
 					}
-
-					// Get the after steps
-					for (After afterStep : element.getAfter()) {
-						StepViewModel stepVM = new StepViewModel();
-						stepVM.setStatus(afterStep.getResult().getStatus());
-						stepVM.setErrorMessage(afterStep.getResult().getError_message());
-						if (!stepVM.getStatus().equals("passed")) {
-							scenarioPass = false; // if any after step fails, the scenario fails
-							featurePass = false; // if any after step fails, the feature fails
-						}
-						scenarioVM.getAfterSteps().add(stepVM);
-					}
-
-					if (scenarioPass) {
-						scenarioVM.setStatus("passed");
-					} else {
-						scenarioVM.setStatus("failed");
-					}
-					featureVM.getScenarios().add(scenarioVM);
 				}
-			}
+				scenarioVM.setBackgrounds(backgrounds);
+				
+				if (elements.get(i).getType().equals("scenario")) {
+					
+					List<StepViewModel> beforeSteps = new ArrayList<StepViewModel>();
+					for (Before before : elements.get(i).getBefore()) {
+						StepViewModel stepVM = new StepViewModel();
+						stepVM.setDuration(before.getResult().getDuration());
+						stepVM.setErrorMessage(before.getResult().getError_message());
+						stepVM.setKeyword("");
+						stepVM.setName("");
+						stepVM.setStatus(before.getResult().getStatus());
+						beforeSteps.add(stepVM);
+					}
+					scenarioVM.setBeforeSteps(beforeSteps);					
+					
+					List<StepViewModel> steps = new ArrayList<StepViewModel>();					
+					for (Step step : elements.get(i).getSteps()) {
+						StepViewModel stepVM = new StepViewModel();
+						stepVM.setDuration(step.getResult().getDuration());
+						stepVM.setErrorMessage(step.getResult().getError_message());
+						stepVM.setKeyword(step.getKeyword());
+						stepVM.setName(step.getName());
+						stepVM.setStatus(step.getResult().getStatus());						
+						steps.add(stepVM);
+					}
+					scenarioVM.setSteps(steps);
+					
+					List<StepViewModel> afterSteps = new ArrayList<StepViewModel>();					
+					for (After after : elements.get(i).getAfter()) {
+						StepViewModel stepVM = new StepViewModel();
+						stepVM.setDuration(after.getResult().getDuration());
+						stepVM.setErrorMessage(after.getResult().getError_message());
+						stepVM.setKeyword("");
+						stepVM.setName("");
+						stepVM.setStatus(after.getResult().getStatus());
+						afterSteps.add(stepVM);						
+					}
+					scenarioVM.setAfterSteps(afterSteps);
 
-			if (featurePass) {
-				featureVM.setStatus("passed");
-			} else {
-				featureVM.setStatus("failed");
+				}
+				featureVM.getScenarios().add(scenarioVM);
 			}
 			wordReportViewModel.getFeatures().add(featureVM);
 		}
