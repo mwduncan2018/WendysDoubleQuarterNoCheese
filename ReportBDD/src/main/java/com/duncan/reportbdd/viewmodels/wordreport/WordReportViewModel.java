@@ -12,26 +12,46 @@ public class WordReportViewModel {
 	private String introParagraph;
 	
 	private List<FeatureViewModel> features = new ArrayList<FeatureViewModel>();
-	private Integer numberFeaturesPassed;
-	private Integer numberFeaturesFailed;
+
+	private Long numberFeaturesPassed;
+	private Long numberFeaturesFailed;
+
+	private Long numberScenariosPassed;
+	private Long numberScenariosFailed;
+	
+	public Long getNumberScenariosPassed() {
+		return numberScenariosPassed;
+	}
+
+	public void setNumberScenariosPassed(Long numberScenariosPassed) {
+		this.numberScenariosPassed = numberScenariosPassed;
+	}
+
+	public Long getNumberScenariosFailed() {
+		return numberScenariosFailed;
+	}
+
+	public void setNumberScenariosFailed(Long numberScenariosFailed) {
+		this.numberScenariosFailed = numberScenariosFailed;
+	}
 
 	public String getTitle() {
 		return title;
 	}
 
-	public Integer getNumberFeaturesPassed() {
+	public Long getNumberFeaturesPassed() {
 		return numberFeaturesPassed;
 	}
 
-	public void setNumberFeaturesPassed(Integer numberFeaturesPassed) {
+	public void setNumberFeaturesPassed(Long numberFeaturesPassed) {
 		this.numberFeaturesPassed = numberFeaturesPassed;
 	}
 
-	public Integer getNumberFeaturesFailed() {
+	public Long getNumberFeaturesFailed() {
 		return numberFeaturesFailed;
 	}
 
-	public void setNumberFeaturesFailed(Integer numberFeaturesFailed) {
+	public void setNumberFeaturesFailed(Long numberFeaturesFailed) {
 		this.numberFeaturesFailed = numberFeaturesFailed;
 	}
 

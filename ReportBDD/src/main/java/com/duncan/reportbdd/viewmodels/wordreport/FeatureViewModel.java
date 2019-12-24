@@ -8,11 +8,11 @@ public class FeatureViewModel {
 
 	private String name;
 	private String description;
-	private String status;
+	private Boolean status;
 	
 	private List<ScenarioViewModel> scenarios = new ArrayList<ScenarioViewModel>();
-	private Integer numberScenariosPassed;
-	private Integer numberScenariosFailed;
+	private Long numberScenariosPassed;
+	private Long numberScenariosFailed;
 	
 	public String getName() {
 		return name;
@@ -26,19 +26,19 @@ public class FeatureViewModel {
 		return description;
 	}
 
-	public Integer getNumberScenariosPassed() {
+	public Long getNumberScenariosPassed() {
 		return numberScenariosPassed;
 	}
 
-	public void setNumberScenariosPassed(Integer numberScenariosPassed) {
+	public void setNumberScenariosPassed(Long numberScenariosPassed) {
 		this.numberScenariosPassed = numberScenariosPassed;
 	}
 
-	public Integer getNumberScenariosFailed() {
+	public Long getNumberScenariosFailed() {
 		return numberScenariosFailed;
 	}
 
-	public void setNumberScenariosFailed(Integer numberScenariosFailed) {
+	public void setNumberScenariosFailed(Long numberScenariosFailed) {
 		this.numberScenariosFailed = numberScenariosFailed;
 	}
 
@@ -46,12 +46,12 @@ public class FeatureViewModel {
 		this.description = description;
 	}
 
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(boolean b) {
+		this.status = b;
 	}
 
 	public List<ScenarioViewModel> getScenarios() {

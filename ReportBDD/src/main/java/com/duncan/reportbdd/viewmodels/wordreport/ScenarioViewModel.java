@@ -7,7 +7,7 @@ public class ScenarioViewModel {
 	
 	private String name;
 	private String description;
-	private String status;
+	private Boolean status;
 
 	private List<StepViewModel> backgrounds = new ArrayList<StepViewModel>();
 	private List<StepViewModel> beforeHooks = new ArrayList<StepViewModel>();
@@ -38,12 +38,12 @@ public class ScenarioViewModel {
 		this.description = description;
 	}
 
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(boolean b) {
+		this.status = b;
 	}
 
 	public List<StepViewModel> getBeforeSteps() {

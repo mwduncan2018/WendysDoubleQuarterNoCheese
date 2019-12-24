@@ -4,7 +4,7 @@ public class StepViewModel {
 
 	private String keyword; // Given, When, or Then
 	private String name; // description text
-	private String status; // pass or fail
+	private Boolean status; // pass or fail
 	private String duration; // nanoseconds duration
 	private String errorMessage;
 
@@ -40,11 +40,11 @@ public class StepViewModel {
 		this.name = name;
 	}
 
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String pass) {
+	public void setStatus(Boolean pass) {
 		this.status = pass;
 	}
 
