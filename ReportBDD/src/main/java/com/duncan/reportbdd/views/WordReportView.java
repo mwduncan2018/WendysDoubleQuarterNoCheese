@@ -38,7 +38,7 @@ public class WordReportView {
 			run = heading.createRun();
 			run.setFontSize(20);
 			run.setBold(true);
-			run.setText("Official Test Report");
+			run.setText(vm.getTitle());
 			run.addCarriageReturn();
 
 			// Date of Report
@@ -62,9 +62,13 @@ public class WordReportView {
 			XWPFParagraph summaryParagraph = doc.createParagraph();
 			summaryParagraph.setAlignment(ParagraphAlignment.LEFT);
 			run = summaryParagraph.createRun();
-			run.setText("Scenarios Passed: " + vm.getNumberScenariosPassed().toString());
+			run.setText(vm.getNumberFeaturesPassed().toString() + " Features Passed");
 			run.addCarriageReturn();
-			run.setText("Scenarios Failed: " + vm.getNumberScenariosFailed().toString());
+			run.setText(vm.getNumberFeaturesFailed().toString() + " Features Failed");
+			run.addCarriageReturn();
+			run.setText(vm.getNumberScenariosPassed().toString() + " Scenarios Passed");
+			run.addCarriageReturn();
+			run.setText(vm.getNumberScenariosFailed().toString() + " Scenarios Failed");
 			run.addCarriageReturn();
 
 			// Test Results Heading
@@ -85,72 +89,84 @@ public class WordReportView {
 				run.setBold(true);
 				run.setText("Feature: " + featureVM.getName());
 				run.addCarriageReturn();
-				run = featureInfoParagraph.createRun();
-				run.setText("Description: " + featureVM.getDescription());
-				run.addCarriageReturn();
-
+				if (featureVM.getDescription().length() > 0) {
+					run = featureInfoParagraph.createRun();
+					run.setText("Description: " + featureVM.getDescription());
+					run.addCarriageReturn();	
+				}
+				
 				for (ScenarioViewModel scenarioVM : featureVM.getScenarios()) {
 
 					// Display Scenario
 					XWPFParagraph scenarioParagraph = doc.createParagraph();
 					scenarioParagraph.setAlignment(ParagraphAlignment.LEFT);
 					
-					if (scenarioVM.getStatus() == false) {
-						
+					run = scenarioParagraph.createRun();
+					run.setText("Scenario: " + scenarioVM.getName());
+					run.addCarriageReturn();
+					if (scenarioVM.getDescription().length() > 0 ) {
 						run = scenarioParagraph.createRun();
-						run.setColor(ColorToRGB.get("RED"));
-						run.setText("Scenario: " + scenarioVM.getName());
-						run.addCarriageReturn();
-
-						run = scenarioParagraph.createRun();
-						run.setColor(ColorToRGB.get("RED"));
-						run.setBold(true);
-						run.setText("Status: " + "failed");
-						run.addCarriageReturn();
-						
-						run = scenarioParagraph.createRun();
-						run.setColor(ColorToRGB.get("RED"));
-						run.setBold(false);
-						run.setText("Comments: ");
-						run.addCarriageReturn();
-						run.setText("_______________________________________________________________");
-						run.addCarriageReturn();
-						run.setText("_______________________________________________________________");
-						run.addCarriageReturn();
-						
-						scenarioParagraph = doc.createParagraph();
-						run = scenarioParagraph.createRun();
-						run.setColor(ColorToRGB.get("RED"));
-						run.setFontSize(9);
-
-						for (StepViewModel stepVM : scenarioVM.getBeforeSteps()) {
-							if (stepVM.getErrorMessage() != null) {
-								run.setText(stepVM.getErrorMessage());
-								run.addCarriageReturn();
-							}
-						}
-						for (StepViewModel stepVM : scenarioVM.getSteps()) {
-							if (stepVM.getErrorMessage() != null) {
-								run.setText(stepVM.getErrorMessage());
-								run.addCarriageReturn();
-							}
-						}
-						for (StepViewModel stepVM : scenarioVM.getAfterSteps()) {
-							if (stepVM.getErrorMessage() != null) {
-								run.setText(stepVM.getErrorMessage());
-								run.addCarriageReturn();
-							}
-						}
-
-					} else if (scenarioVM.getStatus() == true) {
-						run = scenarioParagraph.createRun();
-						run.setText("Scenario: " + scenarioVM.getName());
-						run.addCarriageReturn();
+						run.setText("Description: " + scenarioVM.getDescription());
+						run.addCarriageReturn();							
+					}
+					
+					// if scenario passed
+					if (scenarioVM.getStatus() == true) {
 
 						run = scenarioParagraph.createRun();
 						run.setColor(ColorToRGB.get("DARKGREEN"));
 						run.setBold(true);
 						run.setText("Status: " + "passed");
+					}
+					
+					// if scenario failed
+					if (scenarioVM.getStatus() == false) {
+						
+						run = scenarioParagraph.createRun();
+						run.setColor(ColorToRGB.get("RED"));
+						run.setBold(true);
+						run.setText("Status: " + "failed");
+						run.addCarriageReturn();
+						run.addCarriageReturn();
+						
+						run = scenarioParagraph.createRun();
+						run.setColor(ColorToRGB.get("RED"));
+						run.setBold(true);
+						run.setText("Comments: ");
+						run.addCarriageReturn();
+						//run.setText("____________________________________________________________________");
+						run.addCarriageReturn();
+						//run.setText("____________________________________________________________________");
+						run.addCarriageReturn();
+						
+						scenarioParagraph = doc.createParagraph();
+						run = scenarioParagraph.createRun();
+						run.setColor(ColorToRGB.get("RED"));
+						run.setBold(true);
+						run.setText("Stack Trace:");
+						run.addCarriageReturn();
+						run = scenarioParagraph.createRun();
+						run.setColor(ColorToRGB.get("RED"));
+						run.setFontSize(8);
+
+						for (StepViewModel stepVM : scenarioVM.getBeforeSteps()) {
+							if (stepVM.getErrorMessage() != null) {
+								run.setText(stepVM.getErrorMessage().replace("com.duncan.safeflightbdd.stepdefs.", ""));
+								run.addCarriageReturn();
+							}
+						}
+						for (StepViewModel stepVM : scenarioVM.getSteps()) {
+							if (stepVM.getErrorMessage() != null) {
+								run.setText(stepVM.getErrorMessage().replace("com.duncan.safeflightbdd.stepdefs.", ""));
+								run.addCarriageReturn();
+							}
+						}
+						for (StepViewModel stepVM : scenarioVM.getAfterSteps()) {
+							if (stepVM.getErrorMessage() != null) {
+								run.setText(stepVM.getErrorMessage().replace("com.duncan.safeflightbdd.stepdefs.", ""));
+								run.addCarriageReturn();
+							}
+						}
 					}
 
 					run.addCarriageReturn();
