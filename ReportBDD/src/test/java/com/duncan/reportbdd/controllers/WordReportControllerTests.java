@@ -13,7 +13,8 @@ class WordReportControllerTests {
 		new WordReportController()
 			.setCucumberJsonPath(CUCUMBER_JSON_PATH)
 			.setWritePath(WORD_DOCX_PATH)
-			.generateReport();
+			.generateReport()
+			.writeResultsToConsole();
 		
 	}
 

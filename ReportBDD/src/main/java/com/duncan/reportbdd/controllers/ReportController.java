@@ -12,7 +12,8 @@ public abstract class ReportController {
 	protected String writePath;
 	protected CucumberJsonPojo[] root;
 
-	public abstract void generateReport();
+	public abstract ReportController generateReport();
+	public abstract ReportController writeResultsToConsole();
 
 	public ReportController setCucumberJsonPath(String cucumberJsonPath) {
 		this.cucumberJsonPath = cucumberJsonPath;

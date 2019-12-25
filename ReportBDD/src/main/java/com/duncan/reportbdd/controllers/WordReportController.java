@@ -1,5 +1,8 @@
 package com.duncan.reportbdd.controllers;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,27 +24,88 @@ public class WordReportController extends ReportController {
 	private WordReportViewModel wordReportViewModel = new WordReportViewModel();
 
 	@Override
-	public void generateReport() {
-		this.unmarshalJson();
-		this.populateViewModel();
+	public WordReportController generateReport() {
+		this.wordReportViewModel.setTitle("Official Test Report");
+		this.wordReportViewModel.setDate(LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
 
-		this.calculateStatusOfFeaturesAndScenarios();
-		this.calculateFeaturesPassed();
-		this.calculateFeaturesFailed();
-		this.calculateScenariosFailedForEachFeature();
+		this.extractData();
+
+		this.calculateStatusOfScenarios();
+		this.calculateStatusOfFeatures();
+
 		this.calculateScenariosPassedForEachFeature();
+		this.calculateScenariosFailedForEachFeature();
+
 		this.calculateScenariosPassedForEntireTestRun();
 		this.calculateScenariosFailedForEntireTestRun();
-		
+
+		this.calculateFeaturesPassed();
+		this.calculateFeaturesFailed();
+
 		new WordReportView(wordReportViewModel, writePath);
+
+		return this;
 	}
 
-	private void populateViewModel() {
-		// Convert all the data to the View Models in this for loop
+	@Override
+	public WordReportController writeResultsToConsole() {
+		System.out.println("==================================================");
+		System.out.println("==================================================");
+		System.out.println("==================================================");
+		System.out.println("CUCUMBER CONSOLE REPORT");
+		System.out.println("TITLE: " + wordReportViewModel.getTitle());
+		System.out.println("DATE: " + wordReportViewModel.getDate());
+		System.out.println("==================================================");
+		System.out.println("==================================================");
+		System.out.println("==================================================\n");
+
+		System.out.println(wordReportViewModel.getNumberFeaturesPassed() + " Features Passed");
+		System.out.println(wordReportViewModel.getNumberFeaturesFailed() + " Features Failed");
+		System.out.println(wordReportViewModel.getNumberScenariosPassed() + " Scenarios Passed");
+		System.out.println(wordReportViewModel.getNumberScenariosFailed() + " Scenarios Failed" + "\n");
+
+		for (FeatureViewModel f : wordReportViewModel.getFeatures()) {
+			System.out.println(
+					"======================================================================================================================================================");
+			System.out.println(
+					"======================================================================================================================================================");
+			System.out.println("Feature: " + f.getName());
+			if (f.getDescription().length() > 0) { System.out.println("Description: " + f.getDescription()); }
+			System.out.println(f.getNumberScenariosPassed() + " Scenarios Passed");
+			System.out.println(f.getNumberScenariosFailed() + " Scenarios Failed" + "\n");
+
+			for (ScenarioViewModel s : f.getScenarios()) {
+				System.out.println("   Scenario: " + s.getName());
+				if (s.getDescription().length() > 0) { System.out.println("   Description: " + s.getDescription()); }
+				System.out.println("   Pass? " + s.getStatus());
+
+				if (s.getStatus() == false) {
+					s.getBackgrounds().stream().filter(x -> x.getErrorMessage() != null)
+							.forEach(y -> System.out.println("      " + y.getErrorMessage()));
+					s.getBeforeSteps().stream().filter(x -> x.getErrorMessage() != null)
+							.forEach(y -> System.out.println("      " + y.getErrorMessage()));
+					s.getSteps().stream().filter(x -> x.getErrorMessage() != null)
+							.forEach(y -> System.out.println("      " + y.getErrorMessage()));
+					s.getAfterSteps().stream().filter(x -> x.getErrorMessage() != null)
+							.forEach(y -> System.out.println("      " + y.getErrorMessage()));
+				}
+
+				System.out.println("");
+			}
+
+		}
+
+		return this;
+	}
+
+	private void extractData() {
+		// Extract data from the JSON and populate the WordReportViewModel
+
+		this.unmarshalJson();
 		for (CucumberJsonPojo feature : root) {
 			FeatureViewModel featureVM = new FeatureViewModel();
-			featureVM.setDescription(feature.getDescription().trim().replaceAll("\\R", " ").replaceAll("\\s{2,}", ""));
 			featureVM.setName(feature.getName().trim().replaceAll("\\s{2,}", ""));
+			featureVM.setDescription(feature.getDescription().trim().replaceAll("\\R", " ").replaceAll("\\s{2,}", ""));
 
 			List<Element> elements = Arrays.asList(feature.getElements());
 			for (int i = 0; i < elements.size(); i++) {
@@ -64,6 +128,9 @@ public class WordReportController extends ReportController {
 				scenarioVM.setBackgrounds(backgrounds);
 
 				if (elements.get(i).getType().equals("scenario")) {
+					scenarioVM.setName(elements.get(i).getName().trim().replaceAll("\\s{2,}", ""));
+					scenarioVM.setDescription(
+							elements.get(i).getDescription().trim().replaceAll("\\R", " ").replaceAll("\\s{2,}", ""));
 
 					List<StepViewModel> beforeSteps = new ArrayList<StepViewModel>();
 					for (Before before : elements.get(i).getBefore()) {
@@ -72,6 +139,7 @@ public class WordReportController extends ReportController {
 						stepVM.setErrorMessage(before.getResult().getError_message());
 						stepVM.setKeyword("");
 						stepVM.setName("");
+						stepVM.setMethodMatch(before.getMatch().getLocation());
 						stepVM.setStatus(before.getResult().getStatus().equals("passed"));
 						beforeSteps.add(stepVM);
 					}
@@ -84,6 +152,7 @@ public class WordReportController extends ReportController {
 						stepVM.setErrorMessage(step.getResult().getError_message());
 						stepVM.setKeyword(step.getKeyword());
 						stepVM.setName(step.getName());
+						stepVM.setMethodMatch(step.getMatch().getLocation());
 						stepVM.setStatus(step.getResult().getStatus().equals("passed"));
 						steps.add(stepVM);
 					}
@@ -96,6 +165,7 @@ public class WordReportController extends ReportController {
 						stepVM.setErrorMessage(after.getResult().getError_message());
 						stepVM.setKeyword("");
 						stepVM.setName("");
+						stepVM.setMethodMatch(after.getMatch().getLocation());
 						stepVM.setStatus(after.getResult().getStatus().equals("passed"));
 						afterSteps.add(stepVM);
 					}
@@ -106,78 +176,64 @@ public class WordReportController extends ReportController {
 			}
 			wordReportViewModel.getFeatures().add(featureVM);
 		}
+
 	}
 
-	private void calculateStatusOfFeaturesAndScenarios() {
-		// Set the status for each feature and scenario in this loop
+	private void calculateStatusOfScenarios() {
+		// Set the status for each scenario
 		for (FeatureViewModel f : wordReportViewModel.getFeatures()) {
 			for (ScenarioViewModel s : f.getScenarios()) {
 				s.setStatus(s.getBackgrounds().stream().allMatch(x -> x.getStatus() == true)
 						&& s.getBeforeSteps().stream().allMatch(x -> x.getStatus() == true)
 						&& s.getSteps().stream().allMatch(x -> x.getStatus() == true)
 						&& s.getAfterSteps().stream().allMatch(x -> x.getStatus() == true));
-				System.out.println("=============================");
-				System.out.println("Scenario: " + s.getName());
-				System.out.println("Status: " + s.getStatus());
-				System.out.println("=============================");
 			}
+		}
+	}
+
+	private void calculateStatusOfFeatures() {
+		// Set the status for each feature
+		for (FeatureViewModel f : wordReportViewModel.getFeatures()) {
 			f.setStatus(f.getScenarios().stream().allMatch(x -> x.getStatus() == true));
-			System.out.println("=============================");
-			System.out.println("Feature: " + f.getName());
-			System.out.println("Status: " + f.getStatus());
-			System.out.println("=============================");
 		}
 	}
 
 	private void calculateScenariosPassedForEachFeature() {
-		// Calculate the total number of tests passed in this loop for each feature
+		// Calculate the total number of scenarios passed for each feature
 		for (FeatureViewModel f : wordReportViewModel.getFeatures()) {
 			f.setNumberScenariosPassed(f.getScenarios().stream().filter(x -> x.getStatus() == true).count());
-			System.out.println("=============================");
-			System.out.println("Feature: " + f.getName());
-			System.out.println("Total Scenarios Passed: " + f.getNumberScenariosPassed());
-			System.out.println("=============================");
 		}
 	}
 
 	private void calculateScenariosFailedForEachFeature() {
-		// Calculate the total number of tests failed in this loop for each feature
+		// Calculate the total number of scenarios failed for each feature
 		for (FeatureViewModel f : wordReportViewModel.getFeatures()) {
 			f.setNumberScenariosFailed(f.getScenarios().stream().filter(x -> x.getStatus() == false).count());
-			System.out.println("=============================");
-			System.out.println("Feature: " + f.getName());
-			System.out.println("Total Scenarios Failed: " + f.getNumberScenariosFailed());
-			System.out.println("=============================");
 		}
 	}
 
 	private void calculateFeaturesPassed() {
 		wordReportViewModel.setNumberFeaturesPassed(
 				wordReportViewModel.getFeatures().stream().filter(x -> x.getStatus() == true).count());
-		System.out.println("features passed = " + wordReportViewModel.getNumberFeaturesPassed());
-
 	}
 
 	private void calculateFeaturesFailed() {
 		wordReportViewModel.setNumberFeaturesFailed(
 				wordReportViewModel.getFeatures().stream().filter(x -> x.getStatus() == false).count());
-		System.out.println("features failed  = " + wordReportViewModel.getNumberFeaturesFailed());
 	}
 
 	private void calculateScenariosPassedForEntireTestRun() {
-		// Calculate the total number of tests passed for the entire test run
+		// Calculate the total number of scenarios passed for the entire test run
 		wordReportViewModel.setNumberScenariosPassed(wordReportViewModel.getFeatures().stream().map(x -> {
 			return x.getScenarios().stream().filter(y -> y.getStatus() == true).count();
 		}).collect(Collectors.summingLong(Long::longValue)));
-		System.out.println("scenarios passed = " + wordReportViewModel.getNumberScenariosPassed());
 	}
 
 	private void calculateScenariosFailedForEntireTestRun() {
-		// Calculate the total number of tests failed for the entire test run
+		// Calculate the total number of scenarios failed for the entire test run
 		wordReportViewModel.setNumberScenariosFailed(wordReportViewModel.getFeatures().stream().map(x -> {
 			return x.getScenarios().stream().filter(y -> y.getStatus() == false).count();
 		}).collect(Collectors.summingLong(Long::longValue)));
-		System.out.println("scenarios failed = " + wordReportViewModel.getNumberScenariosFailed());
 	}
 
 	// Calculate the total time... ... in the future

@@ -50,7 +50,8 @@ public class RunCucumberTest {
 		new WordReportController()
 				.setCucumberJsonPath("C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\SafeFlightBDD\\target\\cucumber.json")
 				.setWritePath("C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\ReportBDD\\target\\cucumber.docx")
-				.generateReport();
+				.generateReport()
+				.writeResultsToConsole();
 	}
 
 }

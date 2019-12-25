@@ -3,6 +3,7 @@ package com.duncan.reportbdd.views;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -12,6 +13,9 @@ import org.apache.poi.xwpf.usermodel.UnderlinePatterns;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTPPr;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTSpacing;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STLineSpacingRule;
 
 import com.duncan.reportbdd.utilities.ColorToRGB;
 import com.duncan.reportbdd.viewmodels.wordreport.FeatureViewModel;
@@ -21,7 +25,6 @@ import com.duncan.reportbdd.viewmodels.wordreport.WordReportViewModel;
 
 public class WordReportView {
 	private String LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-	private String reportDate = LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
 
 	public WordReportView(WordReportViewModel vm, String writePath) {
 
@@ -43,7 +46,7 @@ public class WordReportView {
 			dateTime.setAlignment(ParagraphAlignment.CENTER);
 			run = heading.createRun();
 			run.setItalic(true);
-			run.setText(reportDate);
+			run.setText(vm.getDate());
 			run.addCarriageReturn();
 
 			// Summary Heading
@@ -59,8 +62,9 @@ public class WordReportView {
 			XWPFParagraph summaryParagraph = doc.createParagraph();
 			summaryParagraph.setAlignment(ParagraphAlignment.LEFT);
 			run = summaryParagraph.createRun();
-			run.setText("Tests Passed: " + "not implemented");
-			run.setText("Tests Passed: " + "not implemented");
+			run.setText("Scenarios Passed: " + vm.getNumberScenariosPassed().toString());
+			run.addCarriageReturn();
+			run.setText("Scenarios Failed: " + vm.getNumberScenariosFailed().toString());
 			run.addCarriageReturn();
 
 			// Test Results Heading
@@ -90,43 +94,63 @@ public class WordReportView {
 					// Display Scenario
 					XWPFParagraph scenarioParagraph = doc.createParagraph();
 					scenarioParagraph.setAlignment(ParagraphAlignment.LEFT);
-					run = scenarioParagraph.createRun();
-					run.setText("Scenario (aka Test): " + scenarioVM.getName());
-					run.addCarriageReturn();
-					if (scenarioVM.getStatus().equals("failed")) {
+					
+					if (scenarioVM.getStatus() == false) {
+						
+						run = scenarioParagraph.createRun();
+						run.setColor(ColorToRGB.get("RED"));
+						run.setText("Scenario: " + scenarioVM.getName());
+						run.addCarriageReturn();
+
 						run = scenarioParagraph.createRun();
 						run.setColor(ColorToRGB.get("RED"));
 						run.setBold(true);
-						run.setText("Status: " + scenarioVM.getStatus());
+						run.setText("Status: " + "failed");
 						run.addCarriageReturn();
+						
 						run = scenarioParagraph.createRun();
 						run.setColor(ColorToRGB.get("RED"));
 						run.setBold(false);
-						run.setFontSize(8);
+						run.setText("Comments: ");
+						run.addCarriageReturn();
+						run.setText("_______________________________________________________________");
+						run.addCarriageReturn();
+						run.setText("_______________________________________________________________");
+						run.addCarriageReturn();
+						
+						scenarioParagraph = doc.createParagraph();
+						run = scenarioParagraph.createRun();
+						run.setColor(ColorToRGB.get("RED"));
+						run.setFontSize(9);
+
 						for (StepViewModel stepVM : scenarioVM.getBeforeSteps()) {
 							if (stepVM.getErrorMessage() != null) {
-								run.setText("Error Message: " + stepVM.getErrorMessage());
+								run.setText(stepVM.getErrorMessage());
 								run.addCarriageReturn();
 							}
 						}
 						for (StepViewModel stepVM : scenarioVM.getSteps()) {
 							if (stepVM.getErrorMessage() != null) {
-								run.setText("Error Message: " + stepVM.getErrorMessage());
+								run.setText(stepVM.getErrorMessage());
 								run.addCarriageReturn();
 							}
 						}
 						for (StepViewModel stepVM : scenarioVM.getAfterSteps()) {
 							if (stepVM.getErrorMessage() != null) {
-								run.setText("Error Message: " + stepVM.getErrorMessage());
+								run.setText(stepVM.getErrorMessage());
 								run.addCarriageReturn();
 							}
 						}
 
-					} else {
+					} else if (scenarioVM.getStatus() == true) {
+						run = scenarioParagraph.createRun();
+						run.setText("Scenario: " + scenarioVM.getName());
+						run.addCarriageReturn();
+
 						run = scenarioParagraph.createRun();
 						run.setColor(ColorToRGB.get("DARKGREEN"));
 						run.setBold(true);
-						run.setText("Status: " + scenarioVM.getStatus());
+						run.setText("Status: " + "passed");
 					}
 
 					run.addCarriageReturn();

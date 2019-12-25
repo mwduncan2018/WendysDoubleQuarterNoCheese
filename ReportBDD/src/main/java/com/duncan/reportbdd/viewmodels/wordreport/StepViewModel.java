@@ -7,6 +7,15 @@ public class StepViewModel {
 	private Boolean status; // pass or fail
 	private String duration; // nanoseconds duration
 	private String errorMessage;
+	private String methodMatch;
+
+	public String getMethodMatch() {
+		return methodMatch;
+	}
+
+	public void setMethodMatch(String methodMatch) {
+		this.methodMatch = methodMatch;
+	}
 
 	public String getErrorMessage() {
 		return errorMessage;
