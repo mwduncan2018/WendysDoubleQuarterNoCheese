@@ -6,14 +6,29 @@ import org.junit.jupiter.api.Test;
 
 
 class ImageSolutionTests {
-	String TEST_IMAGE_FOLDER = "C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\AutoUtilities\\src\\test\\resources\\ImageSolution\\";
-	String IMAGE_CANVAS_DIRECTORY = TEST_IMAGE_FOLDER + "image_canvas";
-	String NEW_YORK_IMAGE = TEST_IMAGE_FOLDER + "new_york_carousel.jpg";
-	String NEW_YORK_SMALL_IMAGE = TEST_IMAGE_FOLDER + "new_york_small_carousel.jpg";
-	String NEW_YORK_SUPER_SMALL_IMAGE = TEST_IMAGE_FOLDER + "new_york_super_small_carousel.jpg";
-	String DENVER_IMAGE = TEST_IMAGE_FOLDER + "denver_carousel.jpg";
-	String LONDON_IMAGE = TEST_IMAGE_FOLDER + "london_carousel.jpg";
+	String TEST_IMAGE_FOLDER = "C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\SafeFlightAutoFrame\\src\\main\\resources\\images\\pom\\";
+	String IMAGE_CANVAS_DIRECTORY = TEST_IMAGE_FOLDER + "DestinationsPage\\any_image";
+	String NEW_YORK_IMAGE = TEST_IMAGE_FOLDER + "DestinationsPage\\new_york_carousel.jpg";
+	String NEW_YORK_SMALL_IMAGE = TEST_IMAGE_FOLDER + "DestinationsPage\\new_york_small_carousel.jpg";
+	String NEW_YORK_SUPER_SMALL_IMAGE = TEST_IMAGE_FOLDER + "DestinationsPage\\new_york_super_small_carousel.jpg";
+	String DENVER_IMAGE = TEST_IMAGE_FOLDER + "DestinationsPage\\denver_carousel.jpg";
+	String LONDON_IMAGE = TEST_IMAGE_FOLDER + "DestinationsPage\\london_carousel.jpg";
+	String NAV_DESTINATIONS = TEST_IMAGE_FOLDER + "DestinationsPage\\nav_destinations.png";
 
+	@Test
+	void test_practice_01() {
+		try {
+			ImageSolution sol = new ImageSolution("not currently used");
+			System.out.println("HEY... " + NAV_DESTINATIONS);
+			sol.practice(null, NAV_DESTINATIONS, null);
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/*
 	@Test
 	void test_new_york_super_small_image() {

@@ -1,127 +1,35 @@
 package com.duncan.autoutilities;
 
 import java.awt.AWTException;
-import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JSlider;
 
 import org.opencv.core.Core;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
-import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
-public class ImageSolution {
-	public void practice(String ss, String t, String m) throws Exception {
-		// This must be loaded to use 'new Mat()'
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		
-		this.captureScreenshot();
-		
-		ss = SCREENSHOT_PATH;
-
-		// ===================================
-		// Part 1
-		// ===================================
-		Boolean useMask = false;
-		Integer matchMethod = Imgproc.TM_CCOEFF_NORMED;
-
-		Mat img = new Mat();
-		Mat temp = new Mat();
-		Mat mask = new Mat(); // only Imgproc.TM_SQDIFF or Imgproc.TM_CCORR_NORMED can be used for a mask
-
-		JLabel jLabelImgDisplay = new JLabel();
-		JLabel resultDisplay = new JLabel();
-
-		img = Imgcodecs.imread(ss, Imgcodecs.IMREAD_COLOR);
-		temp = Imgcodecs.imread(t, Imgcodecs.IMREAD_COLOR);
-		// not using a mask now
-
-		// if one of the images cannot be read, throw an exception
-		if (img.empty() || temp.empty() || (useMask && mask.empty())) {
-			throw new Exception("During template matching, one of the images could not be read.");
-		}
-
-		// ===================================
-		// Part 2
-		// ===================================
-		Mat imgDisplay = new Mat();
-		img.copyTo(imgDisplay);
-
-		Mat result = new Mat();
-		int resultCols = img.cols() - temp.cols() + 1;
-		int resultRows = img.rows() - temp.rows() + 1;
-		result.create(resultRows, resultCols, CvType.CV_32FC1);
-
-		if (useMask) {
-			// not using a mask now
-		} else {
-			Imgproc.matchTemplate(img, temp, result, matchMethod);
-		}
-		
-		// Use a threshold
-		Mat thresResult = new Mat();
-		// Imgproc.threshold(result, thresResult, , maxval, type)
-		
-		
-		//Core.normalize(result, result, 0, 1, Core.NORM_MINMAX, -1, new Mat());
-
-		Point matchLoc;
-		Core.MinMaxLocResult mmr = Core.minMaxLoc(result);
-
-		if (matchMethod == Imgproc.TM_SQDIFF || matchMethod == Imgproc.TM_SQDIFF_NORMED) {
-			matchLoc = mmr.minLoc;
-		} else {
-			matchLoc = mmr.maxLoc;
-		}
-		
-		System.out.println("mmr.maxVal = " + mmr.maxVal);
-
-		Imgproc.rectangle(imgDisplay, matchLoc, new Point(matchLoc.x + temp.cols(), matchLoc.y + temp.rows()),
-				new Scalar(0, 0, 200), 2, 8, 0);
-		Imgproc.rectangle(result, matchLoc, new Point(matchLoc.x + temp.cols(), matchLoc.y + temp.rows()),
-				new Scalar(0, 0, 200), 2, 8, 0);
-		
-		Imgcodecs.imwrite(IMAGE_SOLUTION_FOLDER_PATH + "practiceImgDisplay.jpg", imgDisplay);
-		Imgcodecs.imwrite(IMAGE_SOLUTION_FOLDER_PATH + "practiceResult.jpg", imgDisplay);
-		
-		/*
-		Image tmpImg = HighGui.toBufferedImage(imgDisplay);
-		ImageIcon icon = new ImageIcon(tmpImg);
-		jLabelImgDisplay.setIcon(icon);
-		
-		result.convertTo(result, CvType.CV_8UC1, 255.0);
-		tmpImg = HighGui.toBufferedImage(result);
-		icon = new ImageIcon(tmpImg);
-		resultDisplay.setIcon(icon);
-		*/
-		
-	}
-
+public class ImageSolutionDeprecated {
+	private static String PYTHON_IMAGE_SOLUTION_EXE_PATH = "C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\AutoUtilities\\src\\main\\java\\com\\duncan\\autoutilities\\image_solution.py";
 	private static String IMAGE_SOLUTION_FOLDER_PATH = "C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\AutoUtilities\\src\\main\\resources\\ImageSolution\\";
 
-	// Used to capture the screenshot, the screenshot with a red rectangle around
-	// the match, and the match coordinates
-	private static String SCREENSHOT_PATH = IMAGE_SOLUTION_FOLDER_PATH + "screenshot.jpg";
-	private static String RED_RECTANGLE_PATH = IMAGE_SOLUTION_FOLDER_PATH + "red_rectangle.jpg";
+	// These 2 variables are used to interact with the Python code
 	private static String MATCH_COORDINATES_PATH = IMAGE_SOLUTION_FOLDER_PATH + "match_coordinates.txt";
+	private static String SCREENSHOT_PATH = IMAGE_SOLUTION_FOLDER_PATH + "screenshot.jpg";
 
 	private String path = null;
 	private List<String> templates = null;
@@ -155,21 +63,17 @@ public class ImageSolution {
 		return this.lowerRightPoint;
 	}
 
-	public ImageSolution(String path) {
+	public ImageSolutionDeprecated(String path) {
 		this.path = path;
-		//this.captureScreenshot();
 
-	}
-
-	public void constructor() {
 		captureScreenshot();
 		initializeTemplates();
 
 		matchPoints = new ArrayList<Point>();
 		for (int i = 0; i < templates.size(); i++) {
 			if (templateMatchIndex == null) {
-				//runOpenCvWithPython(templates.get(i));
-				//readPythonOutputFile();
+				runOpenCvWithPython(templates.get(i));
+				readPythonOutputFile();
 				if (matchFound == true) {
 					templateMatchIndex = i;
 				}
@@ -177,7 +81,6 @@ public class ImageSolution {
 		}
 
 		calculatePoints();
-
 	}
 
 	private void initializeTemplates() {
@@ -200,6 +103,53 @@ public class ImageSolution {
 		} catch (IOException | AWTException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void runOpenCvWithPython(String templatePath) {
+		// Run Python script
+		System.out.println("Running Python Image Search");
+		System.out.println("  " + IMAGE_SOLUTION_FOLDER_PATH + "screenshot.jpg");
+		System.out.println("  " + templatePath);
+		System.out.println("  " + IMAGE_SOLUTION_FOLDER_PATH + "match_coordinates.txt");
+
+		try {
+			ProcessBuilder pb = new ProcessBuilder("python", PYTHON_IMAGE_SOLUTION_EXE_PATH, templatePath,
+					IMAGE_SOLUTION_FOLDER_PATH + "screenshot.jpg",
+					IMAGE_SOLUTION_FOLDER_PATH + "match_coordinates.txt");
+			Process p = pb.start();
+			Thread.sleep(750);
+			p.destroy();
+		} catch (InterruptedException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void readPythonOutputFile() {
+		// Read the output file of the Python script into an ArrayList of Points
+		matchPoints = new ArrayList<Point>();
+		try (BufferedReader bufRead = Files.newBufferedReader(Paths.get(MATCH_COORDINATES_PATH))) {
+			String line;
+			Point point = null;
+			while ((line = bufRead.readLine()) != null) {
+				if (line.length() > 0) {
+					if (line.contains("None")) {
+						System.out.println("  NO MATCHES!");
+						point = null;
+					} else {
+						matchFound = true;
+						line = line.trim().replace("(", "").replace(")", "").replace(" ", "");
+						Integer x = new Integer(line.replaceAll(",[0-9]*", ""));
+						Integer y = new Integer(line.replaceAll("[0-9]*,", ""));
+						point = new Point(x, y);
+						matchPoints.add(point);
+					}
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("  " + "Number of match points = " + ((Integer) this.matchPoints.size()).toString());
+
 	}
 
 	private void calculatePoints() {
