@@ -2,7 +2,9 @@ package com.duncan.autoutilities;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
+import org.opencv.core.Point;
 
 
 class ImageSolutionTests {
@@ -14,22 +16,46 @@ class ImageSolutionTests {
 	String DENVER_IMAGE = TEST_IMAGE_FOLDER + "DestinationsPage\\denver_carousel.jpg";
 	String LONDON_IMAGE = TEST_IMAGE_FOLDER + "DestinationsPage\\london_carousel.jpg";
 	String NAV_DESTINATIONS = TEST_IMAGE_FOLDER + "DestinationsPage\\nav_destinations.png";
+	String NAV_LOGOUT= TEST_IMAGE_FOLDER + "DestinationsPage\\nav_logout.png";
 
 	@Test
+	void test_nav_destionations() throws Exception {
+		ImageSolution sol = new ImageSolution(NAV_DESTINATIONS);
+		System.out.println(sol.getUpperLeftPoint());
+		System.out.println(sol.debugThreshold());
+		System.out.println("___________________________________________________");
+	}
+	
+	@Test
+	void test_nav_logout() throws Exception {
+		ImageSolution sol = new ImageSolution(NAV_LOGOUT);
+		if (sol.getUpperLeftPoint() == null) {
+			System.out.println("NAV LOGOUT SUCCESSFULLY NOT FOUND :)");
+		}
+		System.out.println(sol.debugThreshold());		
+		System.out.println("___________________________________________________");
+	}
+
+	/*
+	@Test
+	@Ignore
 	void test_practice_01() {
 		try {
+			String FIND_ME = NEW_YORK_SUPER_SMALL_IMAGE;
 			ImageSolution sol = new ImageSolution("not currently used");
-			System.out.println("HEY... " + NAV_DESTINATIONS);
-			sol.practice(null, NAV_DESTINATIONS, null);
-			
-			
+			System.out.println("(Junit).. ImagePath = " + FIND_ME + "\n");
+			//sol.practice(null, FIND_ME, null, 0); // TM_CCOEFF
+			//sol.practice(null, FIND_ME, null, 1); // TM_CCOEFF_NORMED
+			//sol.practice(null, FIND_ME, null, 2); // TM_CCORR doesn't work
+			sol.practice(null, FIND_ME, null, 3); // TM_CCORR_NORMED
+			//sol.practice(null, FIND_ME, null, 4); // TM_SQDIFF
+			//sol.practice(null, FIND_ME, null, 5); // TM_SQDIFF_NORMED			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	/*
+
 	@Test
 	void test_new_york_super_small_image() {
 		Driver.initialize();
