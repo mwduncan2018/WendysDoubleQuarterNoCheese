@@ -4,7 +4,7 @@
 
 ##### The automation is running against a C# MVC 5 website on my GitHub, "SafeDuncanFlight".
 
-##### Python is doing the image recognition with OpenCV.
+##### Open Computer Vision (OpenCV) is used for image recognition.
 
 ##### Cucumber is driving the execution of the tests.
 
