@@ -21,12 +21,12 @@ import com.duncan.reportbdd.utilities.ColorToRGB;
 import com.duncan.reportbdd.viewmodels.wordreport.FeatureViewModel;
 import com.duncan.reportbdd.viewmodels.wordreport.ScenarioViewModel;
 import com.duncan.reportbdd.viewmodels.wordreport.StepViewModel;
-import com.duncan.reportbdd.viewmodels.wordreport.WordReportViewModel;
+import com.duncan.reportbdd.viewmodels.wordreport.ReportViewModel;
 
 public class WordReportView {
 	private String LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-	public WordReportView(WordReportViewModel vm, String writePath) {
+	public WordReportView(ReportViewModel vm, String writePath) {
 
 		// Using Apache POI to create the word report
 		try (XWPFDocument doc = new XWPFDocument(); FileOutputStream out = new FileOutputStream(new File(writePath));) {

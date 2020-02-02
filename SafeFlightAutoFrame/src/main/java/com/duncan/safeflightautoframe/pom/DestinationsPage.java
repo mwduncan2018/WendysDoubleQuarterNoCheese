@@ -3,7 +3,8 @@ package com.duncan.safeflightautoframe.pom;
 import org.opencv.core.Point;
 import org.openqa.selenium.By;
 
-import com.duncan.autoutilities.ImageSolutionDeprecated;
+import com.duncan.autoutilities.ImageSolution;
+//import com.duncan.autoutilities.ImageSolutionDeprecated;
 
 
 public class DestinationsPage extends BasePage {
@@ -58,7 +59,7 @@ public class DestinationsPage extends BasePage {
 	}
 
 	public static boolean verifyDenverCarouselImage() {
-		Point point = new ImageSolutionDeprecated(DENVER_IMAGE).getCenterPoint();
+		Point point = new ImageSolution(DENVER_IMAGE).getCenterPoint();
 		if (point != null) {
 			return true;
 		}
@@ -66,7 +67,7 @@ public class DestinationsPage extends BasePage {
 	}
 
 	public static boolean verifyNewYorkCarouselImage() {
-		Point point = new ImageSolutionDeprecated(NEW_YORK_IMAGE).getCenterPoint();
+		Point point = new ImageSolution(NEW_YORK_IMAGE).getCenterPoint();
 		if (point != null) {
 			return true;
 		}
@@ -74,7 +75,7 @@ public class DestinationsPage extends BasePage {
 	}
 
 	public static boolean verifyLondonCarouselImage() {
-		Point point = new ImageSolutionDeprecated(LONDON_IMAGE).getCenterPoint();
+		Point point = new ImageSolution(LONDON_IMAGE).getCenterPoint();
 		if (point != null) {
 			return true;
 		}
@@ -82,7 +83,7 @@ public class DestinationsPage extends BasePage {
 	}
 	
 	public static boolean verifyADestinationImageIsDisplayed() {
-		Point point = new ImageSolutionDeprecated(ANY_IMAGE).getCenterPoint();
+		Point point = new ImageSolution(ANY_IMAGE).getCenterPoint();
 		if (point != null) {
 			return true;
 		}

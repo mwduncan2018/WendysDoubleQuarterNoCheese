@@ -4,6 +4,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
+import com.duncan.reportbdd.controllers.ConsoleReportController;
 import com.duncan.reportbdd.controllers.WordReportController;
 import com.duncan.safeflightautoframe.pom.Driver;
 
@@ -50,8 +51,13 @@ public class RunCucumberTest {
 		new WordReportController()
 				.setCucumberJsonPath("C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\SafeFlightBDD\\target\\cucumber.json")
 				.setWritePath("C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\ReportBDD\\target\\cucumber.docx")
-				.generateReport()
-				.writeResultsToConsole();
+				.generateReport();
+
+		// Print a report to the console
+		new ConsoleReportController()
+				.setCucumberJsonPath("C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\SafeFlightBDD\\target\\cucumber.json")
+				.generateReport();
+				
 	}
 
 }

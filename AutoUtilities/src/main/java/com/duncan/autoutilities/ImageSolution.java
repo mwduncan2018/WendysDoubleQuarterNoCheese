@@ -99,7 +99,7 @@ public class ImageSolution {
 		return this.lowerRightPoint;
 	}
 
-	public ImageSolution(String templatePath) throws Exception {
+	public ImageSolution(String templatePath) {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
 		this.templatePath = templatePath;
@@ -109,7 +109,11 @@ public class ImageSolution {
 		matchPoints = new ArrayList<Point>();
 		for (int i = 0; i < templates.size(); i++) {
 			if (templateMatchIndex == null) {
-				this.templateMatch(templates.get(i));
+				try {
+					this.templateMatch(templates.get(i));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				if (matchFound == true) {
 					templateMatchIndex = i;
 				}

@@ -25,7 +25,7 @@ import com.duncan.reportbdd.viewmodels.wordreport.BeforeViewModel;
 import com.duncan.reportbdd.viewmodels.wordreport.FeatureViewModel;
 import com.duncan.reportbdd.viewmodels.wordreport.ScenarioViewModel;
 import com.duncan.reportbdd.viewmodels.wordreport.StepViewModel;
-import com.duncan.reportbdd.viewmodels.wordreport.WordReportViewModel;
+import com.duncan.reportbdd.viewmodels.wordreport.ReportViewModel;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

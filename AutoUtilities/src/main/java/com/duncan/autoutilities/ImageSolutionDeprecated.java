@@ -24,6 +24,7 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 public class ImageSolutionDeprecated {
+	/*
 	private static String PYTHON_IMAGE_SOLUTION_EXE_PATH = "C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\AutoUtilities\\src\\main\\java\\com\\duncan\\autoutilities\\image_solution.py";
 	private static String IMAGE_SOLUTION_FOLDER_PATH = "C:\\dev\\Java\\WendysDoubleQuarterNoCheese\\AutoUtilities\\src\\main\\resources\\ImageSolution\\";
 
@@ -183,5 +184,5 @@ public class ImageSolutionDeprecated {
 			Imgcodecs.imwrite(IMAGE_SOLUTION_FOLDER_PATH + "result.jpg", matScreenshot);
 		}
 	}
-
+	*/
 }
